@@ -1,0 +1,39 @@
+{
+  "apps": [
+    {
+      "name": "ML-Platform 01",
+      "uuid": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "parents": [],
+      "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "context": [
+        {
+          "name": "SparkContext",
+          "params": {
+            "spark.master": "local[4]",
+            "spark.app.name": "factory root"
+          }
+        },
+        {
+          "name": "SparkSession",
+          "params": {
+          }
+        }
+      ],
+      "operators": [
+        {
+          "name": "GraphAlgorithm.GraphLoadFromEdgeFile",
+          "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+          "edgefile":"D:\\work\\edge.txt"
+          },
+          "ports": {
+          }
+        }
+      ],
+      "ports": {
+      }
+    }
+  ]
+}

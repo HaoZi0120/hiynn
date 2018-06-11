@@ -1,0 +1,135 @@
+{
+  "apps": [
+    {
+      "name": "ML-Platform 01",
+      "uuid": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "parents": [],
+      "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "context": [
+        {
+          "name": "SparkContext",
+          "params": {
+            "spark.master": "local[4]",
+            "spark.app.name": "factory root"
+          }
+        },
+        {
+          "name": "SparkSession",
+          "params": {
+          }
+        }
+      ],
+      "operators": [
+        {
+          "name": "DataProcess.ETL.ConnectDB",
+          "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "dialect": "hive2",
+            "hostname": "192.168.1.102",
+            "port": 10000,
+            "username": "zhouzhihao",
+            "password": "zhouzhihao123",
+            "database": "default",
+            "table": "titanic"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DataProcess.ETL.ExecuteSQL",
+          "uuid": "78cdf0c0-e92b-491f-960d-d393fad2b06e",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [
+            "17bbcbe2-655f-4834-88e6-e5ee71734269"
+          ],
+          "params": {
+            "temptable":"temptable",
+            "statement":"SELECT * FROM temptable where pclass IS NOT NULL and survived IS NOT NULL and sex IS NOT NULL and age IS NOT NULL and sibsp IS NOT NULL and parch IS NOT NULL and fare IS NOT NULL and embarked IS NOT NULL"
+          },
+          "ports": {
+            "in": {
+              "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+              "port": "out"
+            }
+          }
+        },
+        {
+          "name": "MachineLearning.Classification.DecisionTree",
+          "uuid": "b5a6ae1d-80bc-4cc7-a297-49d862e2e80c",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [
+            "78cdf0c0-e92b-491f-960d-d393fad2b06e"
+          ],
+          "params": {
+            "categories": [
+              "sex",
+              "pclass",
+              "sibsp",
+              "parch",
+              "embarked"
+            ],
+            "continuous": [
+              "age",
+              "fare"
+            ],
+            "label": "survived",
+            "maxCategories": 10,
+            "impurity": "gini",
+            "maxBins": 32,
+            "maxDepth": 5,
+            "minInfoGain": 0,
+            "minInstancesPerNode": 1
+          },
+          "ports": {
+            "tra": {
+              "uuid": "78cdf0c0-e92b-491f-960d-d393fad2b06e",
+              "port": "out"
+            }
+          }
+        },
+        {
+          "name": "DataProcess.ETL.ConnectDB",
+          "uuid": "07baddf4-9458-4ec4-9e6b-b1357b80e7c4",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "dialect": "hive2",
+            "hostname": "192.168.1.102",
+            "port": 10000,
+            "username": "zhouzhihao",
+            "password": "zhouzhihao123",
+            "database": "default",
+            "table": "titanic_unlabeled"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "Scoring.ApplyModel",
+          "uuid": "46b30eec-cc51-4576-8696-4a4a1512e609",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [
+            "07baddf4-9458-4ec4-9e6b-b1357b80e7c4",
+            "b5a6ae1d-80bc-4cc7-a297-49d862e2e80c"
+          ],
+          "params": {
+          },
+          "ports": {
+            "unl": {
+              "uuid": "07baddf4-9458-4ec4-9e6b-b1357b80e7c4",
+              "port": "out"
+            },
+            "mod": {
+              "uuid": "b5a6ae1d-80bc-4cc7-a297-49d862e2e80c",
+              "port": "mod"
+            }
+          }
+        }
+      ],
+      "ports": {
+      }
+    }
+  ]
+}

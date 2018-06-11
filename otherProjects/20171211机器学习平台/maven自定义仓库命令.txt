@@ -1,0 +1,11 @@
+mvn install:install-file -Dfile=<path-to-file> -DgroupId=<myGroup> -DartifactId=<myArtifactId> -Dversion=<myVersion> -Dpackaging=<myPackaging> -DlocalRepositoryPath=<path-to-my-repo>
+
+mvn install:install-file -Dfile=E:\tmp\hive_metastore.jar  -DgroupId=org.apache.hadoop -DartifactId=hive_metastore -Dversion=0.0 -Dpackaging=jar -DlocalRepositoryPath=D:\work\projects\datainsight\repository
+
+mvn install:install-file -Dfile=E:\tmp\hive_service.jar  -DgroupId=org.apache.hadoop -DartifactId=hive_service -Dversion=0.0 -Dpackaging=jar -DlocalRepositoryPath=D:\work\projects\datainsight\repository
+
+mvn install:install-file -Dfile=E:\tmp\ql.jar  -DgroupId=org.apache.hadoop -DartifactId=hive_ql -Dversion=0.0 -Dpackaging=jar -DlocalRepositoryPath=D:\work\projects\datainsight\repository
+
+mvn install:install-file -Dfile=E:\tmp\TCLIServiceClient.jar  -DgroupId=org.apache.hive -DartifactId=TCLIServiceClient -Dversion=0.0 -Dpackaging=jar -DlocalRepositoryPath=D:\work\projects\datainsight\repository
+
+mvn install:install-file -Dfile=E:\tmp\HiveJDBC41.jar  -DgroupId=com.cloudera.hive -DartifactId=HiveJDBC41 -Dversion=4.1 -Dpackaging=jar -DlocalRepositoryPath=D:\work\projects\datainsight\repository

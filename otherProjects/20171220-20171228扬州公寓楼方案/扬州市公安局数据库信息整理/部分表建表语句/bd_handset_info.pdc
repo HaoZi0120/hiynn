@@ -1,0 +1,77 @@
+-- Create table
+create table BD_HANDSET_INFO
+(
+  XXZJBH       VARCHAR2(32) not null,
+  ISDELETE     NUMBER(1),
+  OWNER        NVARCHAR2(100),
+  HANDSET_NUM  VARCHAR2(128),
+  IMEI         VARCHAR2(100),
+  IMSI         VARCHAR2(100),
+  ICCID        VARCHAR2(100),
+  IDCARD       VARCHAR2(128),
+  WIFI_MAC     VARCHAR2(100),
+  BT_MAC       VARCHAR2(100),
+  BRAND        NVARCHAR2(256),
+  ITEM_NO      VARCHAR2(128),
+  HANDSET_OS   NVARCHAR2(256),
+  HANDSET_TYPE NUMBER(1),
+  DEVICENAME   NVARCHAR2(255)
+)
+tablespace ZWSJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table BD_HANDSET_INFO
+  is '手机信息(含SIM)';
+-- Add comments to the columns 
+comment on column BD_HANDSET_INFO.XXZJBH
+  is '信息主键编号';
+comment on column BD_HANDSET_INFO.ISDELETE
+  is '是否删除1：删除；0：未删除';
+comment on column BD_HANDSET_INFO.OWNER
+  is '手机持有人';
+comment on column BD_HANDSET_INFO.HANDSET_NUM
+  is '本机号码';
+comment on column BD_HANDSET_INFO.IMEI
+  is 'IMEI';
+comment on column BD_HANDSET_INFO.IMSI
+  is 'IMSI';
+comment on column BD_HANDSET_INFO.ICCID
+  is 'ICCID';
+comment on column BD_HANDSET_INFO.IDCARD
+  is '持有人身份证号码';
+comment on column BD_HANDSET_INFO.WIFI_MAC
+  is 'Wifi mac地址';
+comment on column BD_HANDSET_INFO.BT_MAC
+  is '蓝牙mac地址';
+comment on column BD_HANDSET_INFO.BRAND
+  is '手机品牌';
+comment on column BD_HANDSET_INFO.ITEM_NO
+  is '手机型号';
+comment on column BD_HANDSET_INFO.HANDSET_OS
+  is '手机操作系统';
+comment on column BD_HANDSET_INFO.HANDSET_TYPE
+  is '1是违法犯罪嫌疑人手机 2是被盗抢手机 3 是无助手机或其他性质手机';
+comment on column BD_HANDSET_INFO.DEVICENAME
+  is '设备名称';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table BD_HANDSET_INFO
+  add constraint PK_4_XXZJBH primary key (XXZJBH)
+  using index 
+  tablespace ZWSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

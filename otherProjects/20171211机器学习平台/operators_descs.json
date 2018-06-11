@@ -1,0 +1,185 @@
+{
+	"NativeEnv": [],
+	"SparkEnv": [
+		{
+			"categorydesc": "数据处理",
+			"categoryname": "DataProcess",
+			"operators": [
+				{
+					"operatordesc": "数据源连接，支持常见的关系型数据、hive以及impala等",
+					"operatorname": "连接数据源",
+					"operatorclazz": "ConnectDB",
+					"operatorparams": [
+						{
+							"param": "dialect",
+							"name": "数据库种类",
+							"type": "String",
+							"required": true,
+							"default": "hive2",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						},
+						{
+							"param": "hostname",
+							"name": "数据库地址",
+							"type": "String",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						},
+						{
+							"param": "port",
+							"name": "数据库端口",
+							"type": "Int",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						},
+						{
+							"param": "username",
+							"name": "用户名",
+							"type": "String",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						},
+						{
+							"param": "password",
+							"name": "密码",
+							"type": "String",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						},
+						{
+							"param": "database",
+							"name": "数据库名称",
+							"type": "String",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						},
+						{
+							"param": "table",
+							"name": "数据表名称",
+							"type": "String",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						}										
+					],
+					"operatorport": {
+						"inport": [],
+						"outport": ["out"]
+					}
+				},
+				{
+					"operatordesc": "筛选数据表字段",
+					"operatorname": "筛选字段",
+					"operatorclazz": "SelectFields",
+					"operatorparams": [
+						{
+							"param": "fields",
+							"name": "选择字段",
+							"type": "Array[String]",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						}										
+					],
+					"operatorport": {
+						"inport": ["in"],
+						"outport": ["out"]
+					}
+				},
+				{
+					"operatordesc": "执行SQL语句",
+					"operatorname": "SQL语句",
+					"operatorclazz": "ExecuteSQL",
+					"operatorparams": [
+						{
+							"param": "temptable",
+							"name": "临时表名",
+							"type": "String",
+							"required": false,
+							"default": "temptable",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						},			
+						{
+							"param": "statement",
+							"name": "SQL语句",
+							"type": "String",
+							"required": true,
+							"default": "",
+							"interface": "",
+							"constrain": [
+								{
+									"type": "nonempty",
+									"condition": ""
+								}
+							]
+						}						
+					],
+					"operatorport": {
+						"inport": ["in"],
+						"outport": ["out"]
+					}
+				}
+			]
+		}
+	],
+	"DL4jEnv": []
+}

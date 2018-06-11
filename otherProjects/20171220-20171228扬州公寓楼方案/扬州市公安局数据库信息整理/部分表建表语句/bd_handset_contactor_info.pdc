@@ -1,0 +1,71 @@
+-- Create table
+create table BD_HANDSET_CONTACTOR_INFO
+(
+  XXZJBH                VARCHAR2(32) not null,
+  SRC_HANDSET_NUM       VARCHAR2(128),
+  CONTACTOR_NAME        NVARCHAR2(1000),
+  CONTACTOR_HANDSET_NUM VARCHAR2(4000),
+  ISDELETE              NUMBER(4),
+  EMAIL                 NVARCHAR2(2000),
+  ADDRESS               NVARCHAR2(1024),
+  IM                    VARCHAR2(128),
+  WEBSITE               VARCHAR2(4000),
+  ANNIVERSARY           VARCHAR2(128),
+  REMARK                VARCHAR2(2048),
+  GROUPX                VARCHAR2(1000),
+  CONTACTOR_ID          VARCHAR2(32)
+)
+tablespace ZWSJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table BD_HANDSET_CONTACTOR_INFO
+  is '手机通讯簿信息';
+-- Add comments to the columns 
+comment on column BD_HANDSET_CONTACTOR_INFO.XXZJBH
+  is '信息主键编号';
+comment on column BD_HANDSET_CONTACTOR_INFO.SRC_HANDSET_NUM
+  is '源手机号码';
+comment on column BD_HANDSET_CONTACTOR_INFO.CONTACTOR_NAME
+  is '联系人名称';
+comment on column BD_HANDSET_CONTACTOR_INFO.CONTACTOR_HANDSET_NUM
+  is '联系人手机号码，多个用;隔开';
+comment on column BD_HANDSET_CONTACTOR_INFO.ISDELETE
+  is '是否删除，0没删，1已删';
+comment on column BD_HANDSET_CONTACTOR_INFO.EMAIL
+  is '电子邮箱';
+comment on column BD_HANDSET_CONTACTOR_INFO.ADDRESS
+  is '通讯地址';
+comment on column BD_HANDSET_CONTACTOR_INFO.IM
+  is '即时通信';
+comment on column BD_HANDSET_CONTACTOR_INFO.WEBSITE
+  is '网站';
+comment on column BD_HANDSET_CONTACTOR_INFO.ANNIVERSARY
+  is '纪念日';
+comment on column BD_HANDSET_CONTACTOR_INFO.REMARK
+  is '备注';
+comment on column BD_HANDSET_CONTACTOR_INFO.GROUPX
+  is '群组';
+comment on column BD_HANDSET_CONTACTOR_INFO.CONTACTOR_ID
+  is '通讯录ID';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table BD_HANDSET_CONTACTOR_INFO
+  add constraint PK_5_XXZJBH primary key (XXZJBH)
+  using index 
+  tablespace ZWSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

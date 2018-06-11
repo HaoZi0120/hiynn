@@ -1,0 +1,146 @@
+{
+  "apps": [
+    {
+      "name": "ML-Platform 01",
+      "uuid": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "parents": [],
+      "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "context": [
+        {
+          "name": "SparkContext",
+          "params": {
+            "spark.master": "local[4]",
+            "spark.app.name": "factory root"
+          }
+        },
+        {
+          "name": "SparkSession",
+          "params": {
+          }
+        }
+      ],
+      "operators": [
+        {
+          "name": "DataProcess.Dummy.ReadFile",
+          "uuid": "678698797-bb07-4987-910e-18789e7388e424",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "message": "param message from ReadFile"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DataProcess.Dummy.ThreadSleep",
+          "uuid": "678698797-bb07-4987-910e-67839709787686",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "message": "param message from ReadFile"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DeepLearning.CV.TensorflowTest",
+          "uuid": "678698797-bb07-4987-910e-fhkashfklajflkajk",
+          "belong" : "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "message": "param message from ReadFile"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DataProcess.Dummy.SplitString",
+          "uuid": "678698797-bb07-4987-910e-790989890809809",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [
+            "678698797-bb07-4987-910e-18789e7388e424",
+            "678698797-bb07-4987-910e-67839709787686"
+          ],
+          "params": {
+            "message": "param message from ReadFile"
+          },
+          "ports": {
+            "in": {
+              "uuid": "678698797-bb07-4987-910e-18789e7388e424",
+              "port": "out"
+            }
+          }
+        },
+        {
+          "name": "DataProcess.ETL.ConnectDB",
+          "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "dialect": "hive2",
+            "hostname": "192.168.1.102",
+            "port": 10000,
+            "username": "zhouzhihao",
+            "password": "zhouzhihao123",
+            "database": "buscard",
+            "table": "card0131"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DataProcess.ETL.SelectFields",
+          "uuid": "872642b7-64f3-445c-94c4-ab962f4e0ef6",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [
+            "17bbcbe2-655f-4834-88e6-e5ee71734269"
+          ],
+          "params": {
+            "fields":[
+              "card_no",
+              "maxstaytime"
+            ]
+          },
+          "ports": {
+            "in": {
+              "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+              "port": "out"
+            }
+          }
+        },
+        {
+          "name": "DataProcess.ETL.ExecuteSQL",
+          "uuid": "78cdf0c0-e92b-491f-960d-d393fad2b06e",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [
+            "17bbcbe2-655f-4834-88e6-e5ee71734269"
+          ],
+          "params": {
+            "temptable":"temptable",
+            "statement":"select * from temptable where maxstaytime = '13'"
+          },
+          "ports": {
+            "in": {
+              "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+              "port": "out"
+            }
+          }
+        }
+      ],
+      "ports": {
+      }
+    },
+    {
+      "name": "ML-Platform 02",
+      "uuid": "77666093-bb07-4987-910e-ihiuhiojjojjo",
+      "parents": [],
+      "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "context": [
+      ],
+      "operators": [
+      ],
+      "ports": {
+      }
+    }
+  ]
+}

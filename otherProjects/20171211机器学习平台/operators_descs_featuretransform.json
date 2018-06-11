@@ -1,0 +1,1171 @@
+{
+  "categorydesc": "特征转换",
+  "categoryname": "FeatureTransform",
+  "operators": [
+    {
+      "operatordesc": "二值化",
+      "operatorname": "二值化",
+      "operatorclazz": "Binarizer",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "Binarizer_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "threshold",
+          "name": "二值分类预测阈值",
+          "type": "Double",
+          "required": false,
+          "default": 0.0,
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "连续数据离散化",
+      "operatorname": "离散化",
+      "operatorclazz": "Bucketizer",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "Bucketizer_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "handleInvalid",
+          "name": "无效值处理方式",
+          "type": "String",
+          "required": false,
+          "default": "error",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                "skip",
+                "error",
+                "keep"
+              ]
+            }
+          ]
+        },
+        {
+          "param": "splits",
+          "name": "划分点",
+          "type": "Array[Double]",
+          "required": true,
+          "default": "",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "离散余弦变换",
+      "operatorname": "离散余弦变换",
+      "operatorclazz": "DCT",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "DCT_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "inverse",
+          "name": "是否执行逆DCT（true）或向前DCT（false）",
+          "type": "Boolean",
+          "required": false,
+          "default": false,
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                true,
+                false
+              ]
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "处理缺失值",
+      "operatorname": "缺失值处理",
+      "operatorclazz": "Imputer",
+      "operatorparams": [
+        {
+          "param": "strategy",
+          "name": "处理策略",
+          "type": "String",
+          "required": false,
+          "default": "mean",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                "mean",
+                "median"
+              ]
+            }
+          ]
+        },
+        {
+          "param": "missingValue",
+          "name": "占位值",
+          "type": "Double",
+          "required": false,
+          "default": 0.0,
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCols",
+          "name": "输入列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "outputCols",
+          "name": "输出列（与输入列一一对应）",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "TODO",
+      "operatorname": "Interaction",
+      "operatorclazz": "Interaction",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "interaction_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "fields",
+          "name": "特征列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "基于最大绝对值标准化",
+      "operatorname": "最大绝对值标准化",
+      "operatorclazz": "MaxAbsScaler",
+      "operatorparams": [],
+      "operatorfields": [
+        {
+          "param": "fields",
+          "name": "特征列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "基于最大最小值标准化",
+      "operatorname": "最大最小值标准化",
+      "operatorclazz": "MinMaxScaler",
+      "operatorparams": [
+        {
+          "param": "min",
+          "name": "最小值",
+          "type": "Double",
+          "required": true,
+          "default": "",
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "max",
+          "name": "最大值",
+          "type": "Double",
+          "required": true,
+          "default": "",
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "fields",
+          "name": "特征列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "TODO",
+      "operatorname": "NGram",
+      "operatorclazz": "NGram",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "NGram_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "n",
+          "name": "最小n-gram长度",
+          "type": "Int",
+          "required": false,
+          "default": 2,
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "正则化",
+      "operatorname": "正则化",
+      "operatorclazz": "Normalizer",
+      "operatorparams": [
+        {
+          "param": "p",
+          "name": "正则化系数",
+          "type": "Double",
+          "required": false,
+          "default": 2,
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "fields",
+          "name": "特征列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "独立热编码",
+      "operatorname": "独立热编码",
+      "operatorclazz": "OneHotEncoder",
+      "operatorparams": [
+        {
+          "param": "dropLast",
+          "name": "是否要在编码向量中删除最后一个类别",
+          "type": "Boolean",
+          "required": false,
+          "default": true,
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                true,
+                false
+              ]
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "category",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "PCA降维",
+      "operatorname": "PCA降维",
+      "operatorclazz": "PCA",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "PCA_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "k",
+          "name": "主成分个数",
+          "type": "Int",
+          "required": true,
+          "default": "",
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "多项式展开",
+      "operatorname": "多项式展开",
+      "operatorclazz": "PolynomialExpansion",
+      "operatorparams": [
+        {
+          "param": "degree",
+          "name": "展开的多项式度，应该大于等于1",
+          "type": "Int",
+          "required": false,
+          "default": "2",
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "fields",
+          "name": "特征列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "分位数离散化",
+      "operatorname": "分位数离散化",
+      "operatorclazz": "QuantileDiscretizer",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "QD_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "handleInvalid",
+          "name": "无效值处理方式",
+          "type": "String",
+          "required": false,
+          "default": "error",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                "skip",
+                "error",
+                "keep"
+              ]
+            }
+          ]
+        },
+        {
+          "param": "numBuckets",
+          "name": "桶数",
+          "type": "Int",
+          "required": false,
+          "default": 2,
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "relativeError",
+          "name": "相对误差",
+          "type": "Double",
+          "required": false,
+          "default": 0.001,
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "标记解释器",
+      "operatorname": "标记解释器",
+      "operatorclazz": "RegexTokenizer",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "QD_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "gaps",
+          "name": "表明正则表达式是否在间隙（true）上拆分或匹配令牌（false）",
+          "type": "Boolean",
+          "required": false,
+          "default": true,
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                true,
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "param": "toLowercase",
+          "name": "表示是否在令牌化之前将所有字符转换为小写",
+          "type": "Boolean",
+          "required": false,
+          "default": true,
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                true,
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "param": "minTokenLength",
+          "name": "最小令牌长度，大于或等于0",
+          "type": "Int",
+          "required": false,
+          "default": 1,
+          "interface": "inputnum",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "pattern",
+          "name": "如果gap为true，或者如果gap为false，则使用正则表达式匹配分隔符",
+          "type": "String",
+          "required": false,
+          "default": "s\\+",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "执行SQL语句",
+      "operatorname": "SQL语句",
+      "operatorclazz": "SQLTransformer",
+      "operatorparams": [
+        {
+          "param": "statement",
+          "name": "SQL语句",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "sql",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "标准化",
+      "operatorname": "标准化",
+      "operatorclazz": "StandardScaler",
+      "operatorparams": [
+        {
+          "param": "withStd",
+          "name": "是否将数据缩放到单位标准偏差",
+          "type": "Boolean",
+          "required": false,
+          "default": true,
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                true,
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "param": "withMean",
+          "name": "是否在缩放前将数据居中",
+          "type": "Boolean",
+          "required": false,
+          "default": false,
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                true,
+                false
+              ]
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "fields",
+          "name": "特征列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "停止词移除",
+      "operatorname": "停止词移除",
+      "operatorclazz": "StopWordsRemover",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": true,
+          "default": "SWR_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        },
+        {
+          "param": "caseSensitive",
+          "name": "是否要对停止的词进行比较敏感的比较",
+          "type": "Boolean",
+          "required": false,
+          "default": false,
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            },
+            {
+              "type": "inset",
+              "condition": [
+                true,
+                false
+              ]
+            }
+          ]
+        },
+        {
+          "param": "stopWords",
+          "name": "选择字段",
+          "type": "Array[String]",
+          "required": false,
+          "default": [
+            ""
+          ],
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "标记器",
+      "operatorname": "标记器",
+      "operatorclazz": "Tokenizer",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "Tokenizer_result",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "inputCol",
+          "name": "输入列",
+          "type": "String",
+          "required": true,
+          "default": "",
+          "interface": "droplist",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    },
+    {
+      "operatordesc": "数据转换成特征向量",
+      "operatorname": "特征向量转换",
+      "operatorclazz": "VectorAssembler",
+      "operatorparams": [
+        {
+          "param": "outputCol",
+          "name": "输出列名称",
+          "type": "String",
+          "required": false,
+          "default": "features",
+          "interface": "input",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorfields": [
+        {
+          "param": "fields",
+          "name": "特征列",
+          "type": "Array[String]",
+          "required": true,
+          "default": "",
+          "interface": "selectfields",
+          "constrain": [
+            {
+              "type": "nonempty",
+              "condition": ""
+            }
+          ]
+        }
+      ],
+      "operatorport": {
+        "inport": [
+          "in"
+        ],
+        "outport": [
+          "out"
+        ]
+      }
+    }
+  ]
+}

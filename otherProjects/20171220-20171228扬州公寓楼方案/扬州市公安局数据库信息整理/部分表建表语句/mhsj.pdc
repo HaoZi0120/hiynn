@@ -1,0 +1,474 @@
+-- Create table
+create table MHSJ
+(
+  SN_ID             NUMBER(22) not null,
+  BORDER_TYPE       VARCHAR2(1),
+  SEG_FLTID         NUMBER(22),
+  FLT_AIRLCODE      VARCHAR2(4),
+  FLT_NUMBER        NUMBER(22),
+  FLT_SUFFIX        VARCHAR2(3),
+  FLT_DATE          DATE,
+  SEG_DEPTNO        NUMBER(22),
+  SEG_DESTNO        NUMBER(22),
+  SEG_DEPT_CODE     VARCHAR2(4),
+  SEG_DEST_CODE     VARCHAR2(4),
+  STA_DEPTTM        DATE,
+  STA_ARVETM        DATE,
+  PDT_DEPT          VARCHAR2(4),
+  PDT_DEST          VARCHAR2(4),
+  PSR_HOSTNBR       NUMBER(22),
+  PSR_NAME          VARCHAR2(50),
+  PSR_CHNNAME       VARCHAR2(150),
+  PDT_LASTNAME      VARCHAR2(50),
+  PDT_MIDNAME       VARCHAR2(50),
+  PDT_FIRSTNAME     VARCHAR2(50),
+  PSR_STATUS        VARCHAR2(2),
+  PDT_BIRTHDAY      DATE,
+  PDT_BIR_ADRESS    VARCHAR2(100),
+  PSR_GENDER        VARCHAR2(3),
+  CERT_TYPE         VARCHAR2(3),
+  CERT_NO           VARCHAR2(40),
+  PDT_EXPRIRYDATE   DATE,
+  PDT_ISSUEDATE     DATE,
+  PDT_ISSUE_COUNTRY VARCHAR2(50),
+  PDT_COUNTRY       VARCHAR2(4),
+  PSR_TYPE          VARCHAR2(3),
+  PSR_BRDNO         NUMBER(22),
+  PSR_GROUP         VARCHAR2(5),
+  PSR_ICS           VARCHAR2(6),
+  PSR_CRS           VARCHAR2(6),
+  PSR_SEATNBR       VARCHAR2(50),
+  PSR_FFFR          VARCHAR2(22),
+  PSR_EFMN          VARCHAR2(45),
+  PSR_BAGS          NUMBER(22),
+  PSR_BAGWGT        NUMBER(22),
+  PSR_CLASS         VARCHAR2(1),
+  PSR_CKIPID        VARCHAR2(5),
+  PSR_OFFICE        VARCHAR2(6),
+  PSR_AGENT         VARCHAR2(5),
+  PSR_CKITIME       DATE,
+  PSR_SIP           VARCHAR2(20),
+  PSR_FOID_NONET    VARCHAR2(22),
+  PSR_SEG_SEATNBR   VARCHAR2(70),
+  FFQNO             VARCHAR2(22),
+  DATASOURCE        VARCHAR2(1),
+  TELNO             VARCHAR2(100),
+  PAXCLASS          VARCHAR2(1),
+  ADRESS            VARCHAR2(100),
+  CITY              VARCHAR2(100),
+  PROVINCE          VARCHAR2(100),
+  ICAO_CODE         VARCHAR2(4),
+  POSTCODE          VARCHAR2(10),
+  EDI               VARCHAR2(1),
+  SBY               VARCHAR2(1),
+  PSR_INF           VARCHAR2(1),
+  PSR_INFNAME       VARCHAR2(20),
+  STCR              VARCHAR2(1),
+  WL                VARCHAR2(1),
+  JMP               VARCHAR2(1),
+  SPECIAL_SEAT      VARCHAR2(1),
+  SPECIAL_BG        VARCHAR2(1),
+  SVC               VARCHAR2(1),
+  CKI_CHG           VARCHAR2(1),
+  CMT               VARCHAR2(1),
+  VIP               VARCHAR2(1),
+  URES              VARCHAR2(1),
+  PSR_SBYNO         NUMBER(22),
+  PSR_STDRS         VARCHAR2(4),
+  PSR_ACC           VARCHAR2(1),
+  PSR_SPML_ID       VARCHAR2(1),
+  PSR_SPML          VARCHAR2(80),
+  PSR_MSG           VARCHAR2(200),
+  PSR_PSM           VARCHAR2(200),
+  PSR_PIL           VARCHAR2(80),
+  PSR_PCTC          VARCHAR2(200),
+  PSR_PSPT          VARCHAR2(80),
+  PSR_NOTIFY        VARCHAR2(20),
+  PSR_BLND          VARCHAR2(1),
+  PSR_DEAF          VARCHAR2(1),
+  PSR_EMIG          VARCHAR2(1),
+  PSR_INAD          VARCHAR2(1),
+  PSR_WTYPE         VARCHAR2(4),
+  PSR_WCBD          VARCHAR2(80),
+  PSR_WCBW          VARCHAR2(80),
+  PSR_WCMD          VARCHAR2(80),
+  PSR_WCOB          VARCHAR2(80),
+  PSR_CTCA          VARCHAR2(80),
+  PSR_RUSH          VARCHAR2(80),
+  PSR_HBPRBG        VARCHAR2(20),
+  PSR_AVIH          VARCHAR2(1),
+  PSR_PETC          VARCHAR2(1),
+  PSR_BAGGAGE       VARCHAR2(30),
+  PSR_UNATTACH      VARCHAR2(1),
+  PSR_ARST          VARCHAR2(10),
+  PSR_XASR          VARCHAR2(1),
+  PSR_XABP          VARCHAR2(1),
+  PSR_EXSTSEAT      VARCHAR2(8),
+  PSR_RST           VARCHAR2(5),
+  PSR_SPE           VARCHAR2(6),
+  PSR_ASOBOI        VARCHAR2(1),
+  PSR_OSR           VARCHAR2(10),
+  PSR_AEC           VARCHAR2(1),
+  PSR_SEA           VARCHAR2(1),
+  PSR_REA           VARCHAR2(1),
+  PSR_BSCT          VARCHAR2(1),
+  PSR_UDGRADE       VARCHAR2(20),
+  PSR_OFL           VARCHAR2(1),
+  PSR_DEP           VARCHAR2(1),
+  PSR_RTFI          VARCHAR2(20),
+  PSR_RFFI          VARCHAR2(20),
+  PSR_TSI           VARCHAR2(20),
+  PSR_XRES          VARCHAR2(1),
+  PSR_XT            VARCHAR2(1),
+  PSR_CITYCANC      VARCHAR2(1),
+  PSR_VUDGRADE      VARCHAR2(1),
+  PSR_EDI_WARN      VARCHAR2(80),
+  PSR_INBOUND       VARCHAR2(40),
+  PSR_EDII          VARCHAR2(1),
+  PSR_OUTBOUND      VARCHAR2(200),
+  PSR_EDIO          VARCHAR2(1),
+  PSR_EDI_DEPT      VARCHAR2(3),
+  PSR_EDI_DEST      VARCHAR2(3),
+  PNR_REF           VARCHAR2(6),
+  DELETE_FLAG       VARCHAR2(1),
+  DELETE_FLT_ID     VARCHAR2(20),
+  PSR_ARRIVE_TIME   DATE,
+  DD_ZDY            VARCHAR2(30),
+  DD_ZDE            VARCHAR2(30),
+  FILENAME          VARCHAR2(50),
+  CT_DT             DATE,
+  SCRKSJ            DATE,
+  ZXGXSJ            DATE,
+  JLSXSJ            VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss')
+)
+tablespace MHSJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column MHSJ.SN_ID
+  is '序列号';
+comment on column MHSJ.BORDER_TYPE
+  is '旅客出入境标识';
+comment on column MHSJ.SEG_FLTID
+  is '所属航班序号';
+comment on column MHSJ.FLT_AIRLCODE
+  is '航空公司代码';
+comment on column MHSJ.FLT_NUMBER
+  is '航班号';
+comment on column MHSJ.FLT_SUFFIX
+  is '航班后缀';
+comment on column MHSJ.FLT_DATE
+  is '航班日期YYYY-MM-DD';
+comment on column MHSJ.SEG_DEPTNO
+  is '起飞航站序号';
+comment on column MHSJ.SEG_DESTNO
+  is '到达航站序号';
+comment on column MHSJ.SEG_DEPT_CODE
+  is '起飞航站三字代码';
+comment on column MHSJ.SEG_DEST_CODE
+  is '到达航站三字代码';
+comment on column MHSJ.STA_DEPTTM
+  is '离港时间YYYY-mm-DD';
+comment on column MHSJ.STA_ARVETM
+  is '进港时间YYYY-mm-DD';
+comment on column MHSJ.PDT_DEPT
+  is '离港国家二字码';
+comment on column MHSJ.PDT_DEST
+  is '进港国家二字码';
+comment on column MHSJ.PSR_HOSTNBR
+  is '旅客HOST NUMBER';
+comment on column MHSJ.PSR_NAME
+  is '旅客姓名（英文）';
+comment on column MHSJ.PSR_CHNNAME
+  is '旅客中文姓名';
+comment on column MHSJ.PDT_LASTNAME
+  is '旅客姓';
+comment on column MHSJ.PDT_MIDNAME
+  is '旅客中间名';
+comment on column MHSJ.PDT_FIRSTNAME
+  is '旅客名';
+comment on column MHSJ.PSR_STATUS
+  is '旅客状态';
+comment on column MHSJ.PDT_BIRTHDAY
+  is '出生日期YYYY-mm-DD';
+comment on column MHSJ.PDT_BIR_ADRESS
+  is '出生地';
+comment on column MHSJ.PSR_GENDER
+  is '性别';
+comment on column MHSJ.CERT_TYPE
+  is '证件类型';
+comment on column MHSJ.CERT_NO
+  is '证件号码';
+comment on column MHSJ.PDT_EXPRIRYDATE
+  is '过期日期YYYY-mm-DD';
+comment on column MHSJ.PDT_ISSUEDATE
+  is '发证日期YYYY-mm-DD';
+comment on column MHSJ.PDT_ISSUE_COUNTRY
+  is '发证国家或城市';
+comment on column MHSJ.PDT_COUNTRY
+  is '旅客国家代码';
+comment on column MHSJ.PSR_TYPE
+  is '身份类型';
+comment on column MHSJ.PSR_BRDNO
+  is '旅客登机号信息';
+comment on column MHSJ.PSR_GROUP
+  is '团体旅客标识、团体人数';
+comment on column MHSJ.PSR_ICS
+  is 'ICS中记录信息';
+comment on column MHSJ.PSR_CRS
+  is 'CRS中记录信息';
+comment on column MHSJ.PSR_SEATNBR
+  is '当前航站的座位号';
+comment on column MHSJ.PSR_FFFR
+  is '常旅客/ASR旅客信息';
+comment on column MHSJ.PSR_EFMN
+  is '电子客票旅客';
+comment on column MHSJ.PSR_BAGS
+  is '行李总件数';
+comment on column MHSJ.PSR_BAGWGT
+  is '行李总重量';
+comment on column MHSJ.PSR_CLASS
+  is '旅客舱位信息';
+comment on column MHSJ.PSR_CKIPID
+  is '执行旅客操作的终端号';
+comment on column MHSJ.PSR_OFFICE
+  is '执行值机操作的办公室';
+comment on column MHSJ.PSR_AGENT
+  is '执行值机的代理号';
+comment on column MHSJ.PSR_CKITIME
+  is '执行值机时间信息';
+comment on column MHSJ.PSR_SIP
+  is '共享航班';
+comment on column MHSJ.PSR_FOID_NONET
+  is '非ET旅客的身份证号';
+comment on column MHSJ.PSR_SEG_SEATNBR
+  is '旅客的座位信息';
+comment on column MHSJ.FFQNO
+  is '常客号';
+comment on column MHSJ.DATASOURCE
+  is '数据来源';
+comment on column MHSJ.TELNO
+  is '电话';
+comment on column MHSJ.PAXCLASS
+  is '舱位';
+comment on column MHSJ.ADRESS
+  is '居住地址';
+comment on column MHSJ.CITY
+  is '城市';
+comment on column MHSJ.PROVINCE
+  is '省份';
+comment on column MHSJ.ICAO_CODE
+  is '国家ICAO编码';
+comment on column MHSJ.POSTCODE
+  is '邮编';
+comment on column MHSJ.EDI
+  is '联程旅客标识';
+comment on column MHSJ.SBY
+  is '候补标识';
+comment on column MHSJ.PSR_INF
+  is '婴儿标识';
+comment on column MHSJ.PSR_INFNAME
+  is '婴儿姓名';
+comment on column MHSJ.STCR
+  is '担架旅客标识';
+comment on column MHSJ.WL
+  is '轮椅标识';
+comment on column MHSJ.JMP
+  is '占用折椅旅客标识';
+comment on column MHSJ.SPECIAL_SEAT
+  is '特殊座位标识';
+comment on column MHSJ.SPECIAL_BG
+  is '特殊行李标识';
+comment on column MHSJ.SVC
+  is '特殊服务';
+comment on column MHSJ.CKI_CHG
+  is '值机更改标识';
+comment on column MHSJ.CMT
+  is '旅客注释标识';
+comment on column MHSJ.VIP
+  is '贵宾旅客标识';
+comment on column MHSJ.URES
+  is '未订座旅客标识';
+comment on column MHSJ.PSR_SBYNO
+  is '候补号';
+comment on column MHSJ.PSR_STDRS
+  is '候补原因编码';
+comment on column MHSJ.PSR_ACC
+  is '值机标识';
+comment on column MHSJ.PSR_SPML_ID
+  is '特殊餐食标识';
+comment on column MHSJ.PSR_SPML
+  is '特殊餐食';
+comment on column MHSJ.PSR_MSG
+  is '旅客信息项';
+comment on column MHSJ.PSR_PSM
+  is '旅客服务信息';
+comment on column MHSJ.PSR_PIL
+  is '旅客信息清单项';
+comment on column MHSJ.PSR_PCTC
+  is '紧急联系信息项';
+comment on column MHSJ.PSR_PSPT
+  is '过境信息项';
+comment on column MHSJ.PSR_NOTIFY
+  is '广播通知消息';
+comment on column MHSJ.PSR_BLND
+  is '盲人旅客标识';
+comment on column MHSJ.PSR_DEAF
+  is '耳聋旅客标识';
+comment on column MHSJ.PSR_EMIG
+  is '移民旅客';
+comment on column MHSJ.PSR_INAD
+  is '不许可旅客';
+comment on column MHSJ.PSR_WTYPE
+  is '轮椅类型信息';
+comment on column MHSJ.PSR_WCBD
+  is '轮椅-干燥信息项';
+comment on column MHSJ.PSR_WCBW
+  is '轮椅-潮湿信息项';
+comment on column MHSJ.PSR_WCMD
+  is '轮椅-手工信息项';
+comment on column MHSJ.PSR_WCOB
+  is '轮椅-机上信息项';
+comment on column MHSJ.PSR_CTCA
+  is 'ctca_item(代理人联系信息）';
+comment on column MHSJ.PSR_RUSH
+  is '速运行李标识';
+comment on column MHSJ.PSR_HBPRBG
+  is 'HBPR指令中行李带信息';
+comment on column MHSJ.PSR_AVIH
+  is '手提狗笼标识';
+comment on column MHSJ.PSR_PETC
+  is '宠物笼子标识';
+comment on column MHSJ.PSR_BAGGAGE
+  is '行李';
+comment on column MHSJ.PSR_UNATTACH
+  is '不跟人行李标识信息';
+comment on column MHSJ.PSR_ARST
+  is '分配/预留座位类型';
+comment on column MHSJ.PSR_XASR
+  is '取消ASR旅客标识';
+comment on column MHSJ.PSR_XABP
+  is '取消ABP旅客标识';
+comment on column MHSJ.PSR_EXSTSEAT
+  is '额外占座';
+comment on column MHSJ.PSR_RST
+  is '预留座位种类信息';
+comment on column MHSJ.PSR_SPE
+  is '座位个人喜好项';
+comment on column MHSJ.PSR_ASOBOI
+  is '被他人占用的座位标识信息';
+comment on column MHSJ.PSR_OSR
+  is '最初预定+D163座位项';
+comment on column MHSJ.PSR_AEC
+  is 'AEC旅客标识';
+comment on column MHSJ.PSR_SEA
+  is '给AEC旅客重新分配座位标识';
+comment on column MHSJ.PSR_REA
+  is '给AEC旅客重新订座标识';
+comment on column MHSJ.PSR_BSCT
+  is '摇篮类型';
+comment on column MHSJ.PSR_UDGRADE
+  is '升降舱类型';
+comment on column MHSJ.PSR_OFL
+  is '被拉下旅客表示信息';
+comment on column MHSJ.PSR_DEP
+  is '拉下类型标识';
+comment on column MHSJ.PSR_RTFI
+  is '再值机到某航班信息';
+comment on column MHSJ.PSR_RFFI
+  is '从某航班再值机信息';
+comment on column MHSJ.PSR_TSI
+  is '旅行状态标识';
+comment on column MHSJ.PSR_XRES
+  is '取消订座标识';
+comment on column MHSJ.PSR_XT
+  is '取消转港标识信息';
+comment on column MHSJ.PSR_CITYCANC
+  is '城市取消标识';
+comment on column MHSJ.PSR_VUDGRADE
+  is '自愿升降舱标识';
+comment on column MHSJ.PSR_EDI_WARN
+  is 'EDIFACT警告项';
+comment on column MHSJ.PSR_INBOUND
+  is '入港';
+comment on column MHSJ.PSR_EDII
+  is '进港联乘EDI旅客标识';
+comment on column MHSJ.PSR_OUTBOUND
+  is '出港';
+comment on column MHSJ.PSR_EDIO
+  is '出港联乘EDI旅客标识';
+comment on column MHSJ.PSR_EDI_DEPT
+  is 'EDI旅客始发站';
+comment on column MHSJ.PSR_EDI_DEST
+  is 'EDI旅客到达站';
+comment on column MHSJ.PNR_REF
+  is 'ICSpnr记录编号';
+comment on column MHSJ.DELETE_FLAG
+  is '删除标志';
+comment on column MHSJ.DELETE_FLT_ID
+  is '删除航班ID';
+comment on column MHSJ.PSR_ARRIVE_TIME
+  is '入库时间';
+comment on column MHSJ.DD_ZDY
+  is '待定字段1';
+comment on column MHSJ.DD_ZDE
+  is '待定字段2';
+comment on column MHSJ.FILENAME
+  is '原始数据包的文件名';
+comment on column MHSJ.CT_DT
+  is '导入数据时间';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table MHSJ
+  add constraint PK_MHSJ_SN_ID primary key (SN_ID)
+  using index 
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index IDX_MHSJ_SCRKSJ on MHSJ (SCRKSJ)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index INDEX_MHSJ_ZJHM on MHSJ (CERT_NO)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index MHSJ_STA_DEPTTM on MHSJ (STA_DEPTTM)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

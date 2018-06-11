@@ -1,0 +1,131 @@
+-- Create table
+create table YZTZHY.TZHY_JYJL
+(
+  JYBH     VARCHAR2(30) not null,
+  JGBH     VARCHAR2(20) not null,
+  JYLB     VARCHAR2(6),
+  JYXW     VARCHAR2(6),
+  JYSJ     CHAR(14),
+  JYJE     NUMBER(12,2),
+  WPJH     VARCHAR2(400),
+  WPLBJH   VARCHAR2(100),
+  WPMC     VARCHAR2(200),
+  JYNR     VARCHAR2(100),
+  JYDW     VARCHAR2(100),
+  XM       VARCHAR2(30),
+  XB       VARCHAR2(1),
+  ZJHM     CHAR(18),
+  HJXZ     VARCHAR2(100),
+  LXDH     VARCHAR2(40),
+  DJSJ     CHAR(14),
+  DJRXM    VARCHAR2(30),
+  DJDWMC   VARCHAR2(100),
+  YWZP     INTEGER,
+  XGSJ     CHAR(14),
+  XGRXM    VARCHAR2(30),
+  XGDWMC   VARCHAR2(100),
+  RKSJ     DATE default SYSDATE not null,
+  BZ       VARCHAR2(50) default '0' not null,
+  BDBZ     VARCHAR2(1) default '0' not null,
+  YPBZ     VARCHAR2(1) default '0' not null,
+  SENDFLAG VARCHAR2(5),
+  XMLBS    VARCHAR2(1) default 0
+)
+tablespace YZZATZHY
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 8K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table YZTZHY.TZHY_JYJL
+  is '特种行业交易记录表
+TZHY_JYJL';
+-- Add comments to the columns 
+comment on column YZTZHY.TZHY_JYJL.JYBH
+  is '特种行业编号（14位）+八位日期（YYYYMMDD)+三位序号';
+comment on column YZTZHY.TZHY_JYJL.JGBH
+  is '机构编号:对应表JG_JBXX';
+comment on column YZTZHY.TZHY_JYJL.JYLB
+  is '交易类别(特种行业类别)（字典表DIC_ITEMS：D00468）';
+comment on column YZTZHY.TZHY_JYJL.JYXW
+  is '字典表（dic_yzitem）E*****为交易行为';
+comment on column YZTZHY.TZHY_JYJL.JYSJ
+  is '交易时间';
+comment on column YZTZHY.TZHY_JYJL.JYJE
+  is '物品交易总金额';
+comment on column YZTZHY.TZHY_JYJL.WPJH
+  is '物品编号集合，多件物品已逗号‘，’分隔';
+comment on column YZTZHY.TZHY_JYJL.WPLBJH
+  is '取自物品大类字典(W10000)的代码，多件物品已逗号‘，’分隔（用于对应各物品表）';
+comment on column YZTZHY.TZHY_JYJL.WPMC
+  is '取自物品大类字典的名称，多件物品已逗号‘，’分隔';
+comment on column YZTZHY.TZHY_JYJL.JYNR
+  is '交易内容及备注';
+comment on column YZTZHY.TZHY_JYJL.JYDW
+  is '经办单位';
+comment on column YZTZHY.TZHY_JYJL.XM
+  is '经办人姓名';
+comment on column YZTZHY.TZHY_JYJL.XB
+  is '经办人性别';
+comment on column YZTZHY.TZHY_JYJL.ZJHM
+  is '证件号码';
+comment on column YZTZHY.TZHY_JYJL.HJXZ
+  is '户籍详址';
+comment on column YZTZHY.TZHY_JYJL.LXDH
+  is '联系电话';
+comment on column YZTZHY.TZHY_JYJL.DJSJ
+  is '登记时间';
+comment on column YZTZHY.TZHY_JYJL.DJRXM
+  is '登记人姓名';
+comment on column YZTZHY.TZHY_JYJL.DJDWMC
+  is '登记单位';
+comment on column YZTZHY.TZHY_JYJL.YWZP
+  is '有无照片';
+comment on column YZTZHY.TZHY_JYJL.XGSJ
+  is '修改时间';
+comment on column YZTZHY.TZHY_JYJL.XGRXM
+  is '修改人员姓名';
+comment on column YZTZHY.TZHY_JYJL.XGDWMC
+  is '修改单位';
+comment on column YZTZHY.TZHY_JYJL.RKSJ
+  is '*入库时间';
+comment on column YZTZHY.TZHY_JYJL.BZ
+  is '0-未到后台、1-已到后台';
+comment on column YZTZHY.TZHY_JYJL.BDBZ
+  is '告警比对标识，0为未比对，1为已比对';
+comment on column YZTZHY.TZHY_JYJL.YPBZ
+  is '研判标识，0为未比对，1为已比对';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table YZTZHY.TZHY_JYJL
+  add constraint PK_TZHY_JYJL primary key (JYBH)
+  using index 
+  tablespace YZZATZHY
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index YZTZHY.IX_TZHY_JYJL_XMLBS on YZTZHY.TZHY_JYJL (XMLBS)
+  tablespace YZZATZHY
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 1M
+    minextents 1
+    maxextents unlimited
+  );

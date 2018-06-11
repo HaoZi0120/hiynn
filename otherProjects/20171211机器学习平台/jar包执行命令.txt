@@ -1,0 +1,1 @@
+java -cp D:\work\projects\DataInsight-V2\target\lib\*;D:\work\projects\DataInsight-V2\target\datainsight-1.0-SNAPSHOT.jar com.hiynn.datainsight.DILauncher D:\work\projects\DataInsight-V2\src\main\resources\mocks\SparkEnv\Single\DataProcess\ConnectDB_Hive2.json

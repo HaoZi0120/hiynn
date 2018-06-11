@@ -1,0 +1,82 @@
+--	Create	table
+create	table	B_XDRY
+(
+		C_RYBH				VARCHAR2(32)	not	null,
+		C_XM						VARCHAR2(30),
+		C_CH						VARCHAR2(100),
+		C_XB						VARCHAR2(4),
+		C_MZ						VARCHAR2(4),
+		D_CS						VARCHAR2(14),
+		N_SG						NUMBER(19),
+		C_GJ						VARCHAR2(4),
+		C_SFZJZL		VARCHAR2(4),
+		C_18SFZHM	VARCHAR2(18),
+		C_WHCD				VARCHAR2(4),
+		C_FWCS				VARCHAR2(100),
+		C_HJSZD			VARCHAR2(6),
+		C_HJDPCS		VARCHAR2(60),
+		C_HJSZDXZ	VARCHAR2(128),
+		C_SJJZD			VARCHAR2(6),
+		C_SJPCS			VARCHAR2(60),
+		C_SJJZDXZ	VARCHAR2(128),
+		C_JYQK				VARCHAR2(4),
+		N_YXX					NUMBER(19),
+		ZDRYLBBJ		VARCHAR2(64),
+		ZDRYXL				VARCHAR2(50),
+		FZ								NUMBER(19),
+		N_XH						NUMBER(23)	not	null,
+		C_XDRYLY		VARCHAR2(2),
+		C_SFZHM			VARCHAR2(20),
+		C_TSTAMP		VARCHAR2(24),
+		C_DWDM				VARCHAR2(12),
+		C_DJR					VARCHAR2(30),
+		D_DJ						VARCHAR2(14),
+		RKSJ						VARCHAR2(14)	default	to_char(sysdate,'yyyymmddhh24miss')
+)
+tablespace	GXJWZHXT
+		pctfree	10
+		initrans	1
+		maxtrans	255
+		storage
+		(
+				initial	640
+				minextents	1
+				maxextents	unlimited
+		);
+--	Create/Recreate	primary,	unique	and	foreign	key	constraints	
+alter	table	B_XDRY
+		add	primary	key	(N_XH)
+		using	index	
+		tablespace	GXJWZHXT
+		pctfree	10
+		initrans	2
+		maxtrans	255
+		storage
+		(
+				initial	42M
+				minextents	1
+				maxextents	unlimited
+		);
+--	Create/Recreate	indexes	
+create	index	C_18SFZHM_INDEX	on	B_XDRY	(C_18SFZHM)
+		tablespace	GXJWZHXT
+		pctfree	10
+		initrans	2
+		maxtrans	255
+		storage
+		(
+				initial	72M
+				minextents	1
+				maxextents	unlimited
+		);
+create	index	C_RYBH	on	B_XDRY	(C_RYBH)
+		tablespace	GXJWZHXT
+		pctfree	10
+		initrans	2
+		maxtrans	255
+		storage
+		(
+				initial	60M
+				minextents	1
+				maxextents	unlimited
+		);

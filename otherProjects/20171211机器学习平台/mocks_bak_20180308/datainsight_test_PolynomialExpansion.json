@@ -1,0 +1,80 @@
+{
+  "apps": [
+    {
+      "name": "ML-Platform 01",
+      "uuid": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "parents": [],
+      "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "context": [
+        {
+          "name": "SparkContext",
+          "params": {
+            "spark.master": "local[4]",
+            "spark.app.name": "factory root"
+          }
+        },
+        {
+          "name": "SparkSession",
+          "params": {
+          }
+        }
+      ],
+      "operators": [
+        {
+          "name": "DataProcess.ETL.ConnectDB",
+          "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "dialect": "hive2",
+            "hostname": "192.168.1.102",
+            "port": 10000,
+            "username": "zhouzhihao",
+            "password": "zhouzhihao123",
+            "database": "default",
+            "table": "titanic"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DataProcess.ETL.FilterTable",
+          "uuid": "26fcc5e7-5b9a-499d-b160-1d9c7031f6af",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": ["17bbcbe2-655f-4834-88e6-e5ee71734269"],
+          "params": {
+            "temptable":"titanic_temp",
+            "where":" age IS NOT NULL  and fare IS NOT NULL"
+          },
+          "ports": {
+            "in": {
+              "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+              "port": "out"
+            }
+          }
+        },
+        {
+          "name": "MachineLearning.Preprocessing.PolynomialExpansion",
+          "uuid": "b5a6ae1d-80bc-4cc7-a297-49d862e2e80c",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": ["26fcc5e7-5b9a-499d-b160-1d9c7031f6af"],
+          "params": {
+            "fields":[
+              "age",
+              "fare"
+            ],
+            "degree":2
+          },
+          "ports": {
+            "in": {
+              "uuid": "26fcc5e7-5b9a-499d-b160-1d9c7031f6af",
+              "port": "out"
+            }
+          }
+        }
+      ],
+      "ports": {
+      }
+    }
+  ]
+}

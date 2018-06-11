@@ -1,0 +1,195 @@
+-- Create table
+create table DZ_CZFW
+(
+  CZFWBH  VARCHAR2(20) not null,
+  ZZBH    VARCHAR2(20),
+  RYJGBH  VARCHAR2(20),
+  DJBH    VARCHAR2(12),
+  SYR     VARCHAR2(60),
+  CQDW    VARCHAR2(60),
+  LXDH    VARCHAR2(20),
+  CQXZ    CHAR(3),
+  GLJB    CHAR(3),
+  SFXXY   CHAR(1),
+  CZYT    CHAR(3),
+  FWLX    CHAR(3),
+  CZJS    NUMBER(5),
+  CZMJ    NUMBER(5),
+  CZSJ    CHAR(8),
+  CZZZSJ  CHAR(8),
+  ZXYY    CHAR(1),
+  DLR     VARCHAR2(50),
+  DLRLXFS VARCHAR2(50),
+  BZ      VARCHAR2(400),
+  FWZT    CHAR(1),
+  FWHQBS  CHAR(1),
+  FWHQSJ  CHAR(8),
+  FWXCSJ  CHAR(8),
+  DJSJ    VARCHAR2(14),
+  DJDW    CHAR(12),
+  DJDWMC  VARCHAR2(100),
+  DJR     CHAR(6),
+  DJRXM   VARCHAR2(30),
+  XGSJ    VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss'),
+  XGR     VARCHAR2(6),
+  XGDW    VARCHAR2(12),
+  XGRXM   VARCHAR2(30),
+  XGDWMC  VARCHAR2(100),
+  GLLB    VARCHAR2(1),
+  ZZLX    VARCHAR2(1),
+  RAS     VARCHAR2(1),
+  CJLY    VARCHAR2(1)
+)
+tablespace ZHXT_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 16
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table DZ_CZFW
+  is '出租房屋';
+-- Add comments to the columns 
+comment on column DZ_CZFW.CZFWBH
+  is '出租房屋编号';
+comment on column DZ_CZFW.ZZBH
+  is '住址编号－住址编号';
+comment on column DZ_CZFW.RYJGBH
+  is '房主编号';
+comment on column DZ_CZFW.DJBH
+  is '登记编号';
+comment on column DZ_CZFW.SYR
+  is '房屋所有人';
+comment on column DZ_CZFW.CQDW
+  is '房屋产权单位';
+comment on column DZ_CZFW.LXDH
+  is '房主联系电话';
+comment on column DZ_CZFW.CQXZ
+  is '产权性质－房屋产权性质';
+comment on column DZ_CZFW.GLJB
+  is '管理级别－房屋管理级别';
+comment on column DZ_CZFW.SFXXY
+  is '是否信息员信息员';
+comment on column DZ_CZFW.CZYT
+  is '出租用途－出租用途';
+comment on column DZ_CZFW.FWLX
+  is '房屋类型－房屋类型';
+comment on column DZ_CZFW.CZJS
+  is '出租间数';
+comment on column DZ_CZFW.CZMJ
+  is '出租面积';
+comment on column DZ_CZFW.CZSJ
+  is '出租时间';
+comment on column DZ_CZFW.CZZZSJ
+  is '出租终止时间';
+comment on column DZ_CZFW.ZXYY
+  is '注销原因－房屋注销原因';
+comment on column DZ_CZFW.DLR
+  is '代理人';
+comment on column DZ_CZFW.DLRLXFS
+  is '代理人联系方式';
+comment on column DZ_CZFW.BZ
+  is '备注';
+comment on column DZ_CZFW.FWZT
+  is '房屋状态－记录状态';
+comment on column DZ_CZFW.FWHQBS
+  is '核签标识－信息采集';
+comment on column DZ_CZFW.FWHQSJ
+  is '最新核签时间';
+comment on column DZ_CZFW.FWXCSJ
+  is '最新巡查时间';
+comment on column DZ_CZFW.DJSJ
+  is '操作日期';
+comment on column DZ_CZFW.DJDW
+  is '操作单位－单位编码';
+comment on column DZ_CZFW.DJDWMC
+  is '登记单位名称';
+comment on column DZ_CZFW.DJR
+  is '操作人';
+comment on column DZ_CZFW.DJRXM
+  is '登记人姓名';
+comment on column DZ_CZFW.XGSJ
+  is '修改日期';
+comment on column DZ_CZFW.XGR
+  is '修改人';
+comment on column DZ_CZFW.XGDW
+  is '修改单位';
+comment on column DZ_CZFW.XGRXM
+  is '修改人姓名';
+comment on column DZ_CZFW.XGDWMC
+  is '修改单位名称';
+comment on column DZ_CZFW.GLLB
+  is '管理类别';
+comment on column DZ_CZFW.ZZLX
+  is '租住类型';
+comment on column DZ_CZFW.RAS
+  is '关联标识';
+comment on column DZ_CZFW.CJLY
+  is '采集来源';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DZ_CZFW
+  add constraint PK_DZ_CZFW primary key (CZFWBH)
+  using index 
+  tablespace ZHXT_INDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index CZFW_RYBH_INDEX on DZ_CZFW (RYJGBH)
+  tablespace ZHXT_INDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index CZFW_SYR_INDEX on DZ_CZFW (SYR)
+  tablespace ZHXT_INDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index CZFW_ZRQ_INDEX on DZ_CZFW (DJDW)
+  tablespace ZHXT_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 128K
+    minextents 1
+    maxextents unlimited
+  );
+create index CZFW_ZZBH_INDEX on DZ_CZFW (ZZBH)
+  tablespace ZHXT_INDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select, insert, update, delete on DZ_CZFW to JWTJK;
+grant select, update on DZ_CZFW to XXZY;
+grant select, insert, update, delete on DZ_CZFW to ZHXT;

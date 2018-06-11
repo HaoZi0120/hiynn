@@ -1,0 +1,16 @@
+bd_handset_info	手机信息(含SIM)
+XXZJBH	信息主键编号
+ISDELETE	是否删除1：删除；0：未删除
+OWNER	手机持有人
+HANDSET_NUM	本机号码
+IMEI	IMEI
+IMSI	IMSI
+ICCID	ICCID
+IDCARD	持有人身份证号码
+WIFI_MAC	Wifi mac地址
+BT_MAC	蓝牙mac地址
+BRAND	手机品牌
+ITEM_NO	手机型号
+HANDSET_OS	手机操作系统
+HANDSET_TYPE	1是违法犯罪嫌疑人手机 2是被盗抢手机 3 是无助手机或其他性质手机
+DEVICENAME	设备名称

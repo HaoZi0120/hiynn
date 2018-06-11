@@ -1,0 +1,289 @@
+-- Create table
+create table JCPT_RY_ZDRYGLXX_BAK
+(
+  JLBH     VARCHAR2(23) not null,
+  RYBH     VARCHAR2(20),
+  BJZDRYBH VARCHAR2(18),
+  GMSFHM   VARCHAR2(18),
+  XGLDW    VARCHAR2(12),
+  ZDRYGLZT VARCHAR2(1),
+  ZDRYSX   VARCHAR2(128),
+  LGLB     VARCHAR2(90),
+  ZDRYGLJB VARCHAR2(6),
+  ZDRYLGLY VARCHAR2(1),
+  ZDRYDQJF NUMBER,
+  SCLGR    VARCHAR2(6),
+  SCLGSJ   VARCHAR2(14),
+  SCLGRXM  VARCHAR2(30),
+  SCLGDW   VARCHAR2(12),
+  SCLGDWMC VARCHAR2(100),
+  SCLGYJ   VARCHAR2(2000),
+  CGR      VARCHAR2(6),
+  CGSJ     VARCHAR2(14),
+  CGRXM    VARCHAR2(30),
+  CGDW     VARCHAR2(12),
+  CGDWMC   VARCHAR2(100),
+  CGYJ     VARCHAR2(2000),
+  CGYY     VARCHAR2(1),
+  BZ       VARCHAR2(4000),
+  DJDW     VARCHAR2(12),
+  DJR      VARCHAR2(6),
+  DJSJ     VARCHAR2(14),
+  DJRXM    VARCHAR2(30),
+  DJDWMC   VARCHAR2(100),
+  XGSJ     VARCHAR2(14),
+  XGR      VARCHAR2(6),
+  XGDW     VARCHAR2(12),
+  XGRXM    VARCHAR2(30),
+  XGDWMC   VARCHAR2(100),
+  XGLDWMC  VARCHAR2(100),
+  SYGZ     VARCHAR2(2),
+  JMKSSJ   VARCHAR2(8),
+  JMJZSJ   VARCHAR2(8),
+  JMZQ     NUMBER,
+  XM       VARCHAR2(50),
+  WWX      VARCHAR2(40),
+  WWM      VARCHAR2(40),
+  CYZJDM   CHAR(3),
+  ZJHM     VARCHAR2(30),
+  XBDM     CHAR(1),
+  MZDM     CHAR(2),
+  CSRQ     CHAR(8),
+  SCRKSJ   DATE,
+  ZXGXSJ   DATE,
+  JLMJ     CHAR(1) default '5'
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table JCPT_RY_ZDRYGLXX_BAK
+  is '重点人员管理信息';
+-- Add comments to the columns 
+comment on column JCPT_RY_ZDRYGLXX_BAK.JLBH
+  is '重点人员记录编号';
+comment on column JCPT_RY_ZDRYGLXX_BAK.RYBH
+  is '重点人员人员编号';
+comment on column JCPT_RY_ZDRYGLXX_BAK.BJZDRYBH
+  is '重点人员部级编号';
+comment on column JCPT_RY_ZDRYGLXX_BAK.GMSFHM
+  is '重点人员身份号码';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XGLDW
+  is '重点人员现管理单位';
+comment on column JCPT_RY_ZDRYGLXX_BAK.ZDRYGLZT
+  is '重点人员管理状态';
+comment on column JCPT_RY_ZDRYGLXX_BAK.ZDRYSX
+  is '重点人员属性';
+comment on column JCPT_RY_ZDRYGLXX_BAK.LGLB
+  is '重点人员类别';
+comment on column JCPT_RY_ZDRYGLXX_BAK.ZDRYGLJB
+  is '重点人员管理级别';
+comment on column JCPT_RY_ZDRYGLXX_BAK.ZDRYLGLY
+  is '重点人员列管来源';
+comment on column JCPT_RY_ZDRYGLXX_BAK.ZDRYDQJF
+  is '重点人员当前积分';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SCLGR
+  is '重点人员首次列管人';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SCLGSJ
+  is '重点人员首次列管时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SCLGRXM
+  is '重点人员首次列管人姓名';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SCLGDW
+  is '重点人员首次列管单位';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SCLGDWMC
+  is '重点人员首次列管单位名称';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SCLGYJ
+  is '重点人员首次列管依据';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CGR
+  is '重点人员撤管人';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CGSJ
+  is '重点人员撤管时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CGRXM
+  is '重点人员撤管人姓名';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CGDW
+  is '重点人员撤管单位';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CGDWMC
+  is '重点人员撤管单位名称';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CGYJ
+  is '重点人员撤管依据';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CGYY
+  is '重点人员撤管原因';
+comment on column JCPT_RY_ZDRYGLXX_BAK.BZ
+  is '重点人员备注';
+comment on column JCPT_RY_ZDRYGLXX_BAK.DJDW
+  is '重点人员登记单位';
+comment on column JCPT_RY_ZDRYGLXX_BAK.DJR
+  is '重点人员登记人';
+comment on column JCPT_RY_ZDRYGLXX_BAK.DJSJ
+  is '重点人员登记时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.DJRXM
+  is '重点人员登记人姓名';
+comment on column JCPT_RY_ZDRYGLXX_BAK.DJDWMC
+  is '重点人员登记单位名称';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XGSJ
+  is '重点人员修改时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XGR
+  is '重点人员修改人';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XGDW
+  is '重点人员修改单位';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XGRXM
+  is '重点人员修改人姓名';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XGDWMC
+  is '重点人员修改单位名称';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XGLDWMC
+  is '重点人员现管理单位名称';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SYGZ
+  is '重点人员管控见面使用规则';
+comment on column JCPT_RY_ZDRYGLXX_BAK.JMKSSJ
+  is '重点人员管控见面开始时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.JMJZSJ
+  is '重点人员管控见面截止时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.JMZQ
+  is '重点人员管控见面周期';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XM
+  is '姓名扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.WWX
+  is '外文姓扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.WWM
+  is '外文名扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CYZJDM
+  is '证件种类扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.ZJHM
+  is '证件号码扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.XBDM
+  is '性别扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.MZDM
+  is '民族扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.CSRQ
+  is '出生日期扩充';
+comment on column JCPT_RY_ZDRYGLXX_BAK.SCRKSJ
+  is '首次入库时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.ZXGXSJ
+  is '最新更新时间';
+comment on column JCPT_RY_ZDRYGLXX_BAK.JLMJ
+  is '记录密级';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table JCPT_RY_ZDRYGLXX_BAK
+  add primary key (JLBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index JCPT_RY_ZDRYGLXX_DJSJ on JCPT_RY_ZDRYGLXX_BAK (DJSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_LGLB on JCPT_RY_ZDRYGLXX_BAK (LGLB)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_RYBH on JCPT_RY_ZDRYGLXX_BAK (RYBH)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_SFZH on JCPT_RY_ZDRYGLXX_BAK (ZJHM)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_XGLDW on JCPT_RY_ZDRYGLXX_BAK (XGLDW)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_ZDRYGLJB on JCPT_RY_ZDRYGLXX_BAK (ZDRYGLJB)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_ZDRYGLZT on JCPT_RY_ZDRYGLXX_BAK (ZDRYGLZT)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_ZDRYSX on JCPT_RY_ZDRYGLXX_BAK (ZDRYSX)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_ZDRYGLXX_ZXGXSJ on JCPT_RY_ZDRYGLXX_BAK (ZXGXSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on JCPT_RY_ZDRYGLXX_BAK to HJFJ;
+grant select on JCPT_RY_ZDRYGLXX_BAK to SCOTT;
+grant select on JCPT_RY_ZDRYGLXX_BAK to ZHZX;

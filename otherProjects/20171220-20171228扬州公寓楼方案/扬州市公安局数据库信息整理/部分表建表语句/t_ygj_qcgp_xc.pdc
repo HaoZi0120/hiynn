@@ -1,0 +1,132 @@
+-- Create table
+create table T_YGJ_QCGP_XC
+(
+  WARNTYPE     VARCHAR2(2),
+  NAME         VARCHAR2(20),
+  SEX          VARCHAR2(4),
+  CARDNUMBER   VARCHAR2(20),
+  CARDTYPE     VARCHAR2(20),
+  STARTSTATION VARCHAR2(50),
+  ENDSTATION   VARCHAR2(50),
+  TICKETTYPE   VARCHAR2(20),
+  TICKETNUMBER VARCHAR2(20),
+  TRAINNUMBER  VARCHAR2(10),
+  SEATNUMBER   VARCHAR2(8),
+  STARTTIME    VARCHAR2(14),
+  ENDTIME      VARCHAR2(14),
+  BUYTIME      VARCHAR2(14),
+  CARNUMBER    VARCHAR2(10),
+  CARRIER      VARCHAR2(50),
+  CARRIERTEL   VARCHAR2(11),
+  CHECKTIME    VARCHAR2(14),
+  CRETETIME    VARCHAR2(14),
+  PHOTO        VARCHAR2(100),
+  STRKSJ       VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss'),
+  XID          NUMBER(30) not null,
+  INSERTTIME   VARCHAR2(30),
+  R            VARCHAR2(6)
+)
+tablespace MHSJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table T_YGJ_QCGP_XC
+  is '当日客运汽车购票';
+-- Add comments to the columns 
+comment on column T_YGJ_QCGP_XC.WARNTYPE
+  is '指令，1：购票指令；2：查验指令';
+comment on column T_YGJ_QCGP_XC.NAME
+  is '旅客姓名';
+comment on column T_YGJ_QCGP_XC.SEX
+  is '性别，1：男；2：女；3：未知';
+comment on column T_YGJ_QCGP_XC.CARDNUMBER
+  is '旅客证件号码';
+comment on column T_YGJ_QCGP_XC.CARDTYPE
+  is '旅客证件类型';
+comment on column T_YGJ_QCGP_XC.STARTSTATION
+  is '起始站';
+comment on column T_YGJ_QCGP_XC.ENDSTATION
+  is '终到站';
+comment on column T_YGJ_QCGP_XC.TICKETTYPE
+  is '购票方式';
+comment on column T_YGJ_QCGP_XC.TICKETNUMBER
+  is '车票编号';
+comment on column T_YGJ_QCGP_XC.TRAINNUMBER
+  is '车次';
+comment on column T_YGJ_QCGP_XC.SEATNUMBER
+  is '座号';
+comment on column T_YGJ_QCGP_XC.STARTTIME
+  is '发车时间';
+comment on column T_YGJ_QCGP_XC.ENDTIME
+  is '终到时间';
+comment on column T_YGJ_QCGP_XC.BUYTIME
+  is '购票时间';
+comment on column T_YGJ_QCGP_XC.CARNUMBER
+  is '车牌号';
+comment on column T_YGJ_QCGP_XC.CARRIER
+  is '承运人';
+comment on column T_YGJ_QCGP_XC.CARRIERTEL
+  is '承运电话';
+comment on column T_YGJ_QCGP_XC.CHECKTIME
+  is '查验时间';
+comment on column T_YGJ_QCGP_XC.CRETETIME
+  is '创建时间';
+comment on column T_YGJ_QCGP_XC.PHOTO
+  is '旅客照片';
+comment on column T_YGJ_QCGP_XC.INSERTTIME
+  is '入库时间';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_YGJ_QCGP_XC
+  add constraint PK_KID primary key (XID)
+  using index 
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index INDEX_CARDNUMBER on T_YGJ_QCGP_XC (CARDNUMBER)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index PK_KID_RKSJ on T_YGJ_QCGP_XC (STRKSJ)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index STARTTIME_INDEX_T_YGJ on T_YGJ_QCGP_XC (STARTTIME)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

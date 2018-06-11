@@ -1,0 +1,137 @@
+-- Create table
+create table T_WFFZRYXX
+(
+  CRIMINAL_NO      VARCHAR2(10) not null,
+  CRIMINAL_ID      VARCHAR2(21),
+  IDENTITY_ID      VARCHAR2(18),
+  CRIMINAL_NAME    VARCHAR2(30),
+  SPELL_NAME       VARCHAR2(100),
+  GENDER_CODE      VARCHAR2(1),
+  BIRTHDATE        VARCHAR2(8),
+  ALIAS            VARCHAR2(200),
+  ALIAS_SPELL      VARCHAR2(400),
+  EDUCATION_CODE   VARCHAR2(2),
+  NATIONALITY_CODE VARCHAR2(2),
+  DEGREE_CODE      VARCHAR2(2),
+  DWELL_CODE       VARCHAR2(6),
+  DWELL_ADDRESS    VARCHAR2(100),
+  REG_ADDR_CODE    VARCHAR2(6),
+  REG_ADDRESS      VARCHAR2(100),
+  SPECIALITY_CODE  VARCHAR2(2),
+  FOOT_LENGTH      VARCHAR2(3),
+  STATURE          VARCHAR2(3),
+  MEMO             VARCHAR2(400),
+  REPORT_DISTRICT  VARCHAR2(6),
+  REPORT_TIME      VARCHAR2(14),
+  RKSJ             VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss')
+)
+tablespace GXJWZHXT
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 1542M
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table T_WFFZRYXX
+  is '犯罪人员信息表';
+-- Add comments to the columns 
+comment on column T_WFFZRYXX.CRIMINAL_NO
+  is '犯罪人员序号';
+comment on column T_WFFZRYXX.CRIMINAL_ID
+  is '犯罪人员编号';
+comment on column T_WFFZRYXX.IDENTITY_ID
+  is '身份证号';
+comment on column T_WFFZRYXX.CRIMINAL_NAME
+  is '姓名';
+comment on column T_WFFZRYXX.SPELL_NAME
+  is '姓名拼音';
+comment on column T_WFFZRYXX.GENDER_CODE
+  is '性别代码';
+comment on column T_WFFZRYXX.BIRTHDATE
+  is '出生日期';
+comment on column T_WFFZRYXX.ALIAS
+  is '别名';
+comment on column T_WFFZRYXX.ALIAS_SPELL
+  is '别名拼音';
+comment on column T_WFFZRYXX.EDUCATION_CODE
+  is '文化程度代码';
+comment on column T_WFFZRYXX.NATIONALITY_CODE
+  is '民族代码';
+comment on column T_WFFZRYXX.DEGREE_CODE
+  is '身份代码';
+comment on column T_WFFZRYXX.DWELL_CODE
+  is '居住地代码';
+comment on column T_WFFZRYXX.DWELL_ADDRESS
+  is '居住地详址';
+comment on column T_WFFZRYXX.REG_ADDR_CODE
+  is '户籍地代码';
+comment on column T_WFFZRYXX.REG_ADDRESS
+  is '户籍地详址';
+comment on column T_WFFZRYXX.SPECIALITY_CODE
+  is '专长代码';
+comment on column T_WFFZRYXX.FOOT_LENGTH
+  is '足长';
+comment on column T_WFFZRYXX.STATURE
+  is '身高';
+comment on column T_WFFZRYXX.MEMO
+  is '备注';
+comment on column T_WFFZRYXX.REPORT_DISTRICT
+  is '上报地区代码';
+comment on column T_WFFZRYXX.REPORT_TIME
+  is '时间';
+comment on column T_WFFZRYXX.RKSJ
+  is '入库时间';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_WFFZRYXX
+  add primary key (CRIMINAL_NO)
+  using index 
+  tablespace GXJWZHXT
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 200M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index T_WFFZRYXX_CRIMINAL_ID on T_WFFZRYXX (CRIMINAL_ID)
+  tablespace GXJWZHXT
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_WFFZRYXX_IDENTITY_ID on T_WFFZRYXX (IDENTITY_ID)
+  tablespace GXJWZHXT
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 286M
+    minextents 1
+    maxextents unlimited
+  );
+create index T_WFFZRYXX_RKSJ on T_WFFZRYXX (RKSJ)
+  tablespace GXJWZHXT
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on T_WFFZRYXX to SJJM;

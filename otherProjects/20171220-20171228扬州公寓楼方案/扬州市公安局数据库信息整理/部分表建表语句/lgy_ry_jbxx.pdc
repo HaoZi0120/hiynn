@@ -1,0 +1,187 @@
+-- Create table
+create table YZTZHY.LGY_RY_JBXX
+(
+  RYBH     VARCHAR2(20),
+  GMSFHM   VARCHAR2(18),
+  XM       VARCHAR2(30),
+  XMPY     VARCHAR2(30),
+  CYM      VARCHAR2(30),
+  CYMPY    VARCHAR2(30),
+  YWX      VARCHAR2(40),
+  YWM      VARCHAR2(20),
+  ZJZL     CHAR(3),
+  ZJHM     VARCHAR2(20),
+  BMCH     VARCHAR2(30),
+  BMCHPY   VARCHAR2(30),
+  XB       CHAR(1),
+  MZ       CHAR(2),
+  CSRQ     CHAR(20),
+  ZJXY     CHAR(2),
+  ZZMM     CHAR(2),
+  WHCD     CHAR(2),
+  HYZK     CHAR(2),
+  BYZK     CHAR(2),
+  SG       VARCHAR2(3),
+  XX       CHAR(1),
+  LXDH     VARCHAR2(100),
+  GJDQ     CHAR(3),
+  HJQH     CHAR(6),
+  HJQHMC   VARCHAR2(100),
+  HJZRQ    VARCHAR2(12),
+  HJXZ     VARCHAR2(100),
+  RYLB     CHAR(1),
+  RYSX     CHAR(60),
+  DJSJ     VARCHAR2(20),
+  DJDW     VARCHAR2(12),
+  DJDWMC   VARCHAR2(100),
+  XZZZRQ   CHAR(12),
+  XZZQH    CHAR(6),
+  XZZQHMC  VARCHAR2(100),
+  XZZXZ    VARCHAR2(100),
+  XGSJ     CHAR(14),
+  SHZT     CHAR(1),
+  SHYY     VARCHAR2(300),
+  RKSJ     DATE default SYSDATE,
+  BDBZ     VARCHAR2(1) default 0,
+  YPBZ     VARCHAR2(1) default 0,
+  CSBS     CHAR(1),
+  YLZD1    CHAR(5),
+  YLZD2    CHAR(10),
+  YLZD3    CHAR(1),
+  YLZD4    VARCHAR2(30),
+  DELFLAG  VARCHAR2(1) default '0',
+  SENDFLAG VARCHAR2(1) default '0',
+  ZTBS     CHAR(1) default '0',
+  SHID     VARCHAR2(20),
+  SHIP     VARCHAR2(20),
+  SHSJ     DATE,
+  PXYXQ    DATE,
+  ZC       VARCHAR2(50),
+  SFPX     VARCHAR2(1),
+  SF       VARCHAR2(10),
+  ZYLB     VARCHAR2(10),
+  XMLBS    VARCHAR2(5) default 0
+)
+tablespace YZZATZHY
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    next 8K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table YZTZHY.LGY_RY_JBXX
+  is '新旅馆业人员基本信息';
+-- Add comments to the columns 
+comment on column YZTZHY.LGY_RY_JBXX.RYBH
+  is '人员编号';
+comment on column YZTZHY.LGY_RY_JBXX.GMSFHM
+  is '居民身份证号';
+comment on column YZTZHY.LGY_RY_JBXX.XM
+  is '姓名';
+comment on column YZTZHY.LGY_RY_JBXX.XMPY
+  is '姓名拼音';
+comment on column YZTZHY.LGY_RY_JBXX.CYM
+  is '曾用名';
+comment on column YZTZHY.LGY_RY_JBXX.CYMPY
+  is '曾用名拼音';
+comment on column YZTZHY.LGY_RY_JBXX.YWX
+  is '英文姓';
+comment on column YZTZHY.LGY_RY_JBXX.YWM
+  is '英文名';
+comment on column YZTZHY.LGY_RY_JBXX.ZJZL
+  is '证件种类';
+comment on column YZTZHY.LGY_RY_JBXX.ZJHM
+  is '证件号码';
+comment on column YZTZHY.LGY_RY_JBXX.BMCH
+  is '别名绰号';
+comment on column YZTZHY.LGY_RY_JBXX.BMCHPY
+  is '别名绰号拼音';
+comment on column YZTZHY.LGY_RY_JBXX.XB
+  is '性别';
+comment on column YZTZHY.LGY_RY_JBXX.MZ
+  is '民族';
+comment on column YZTZHY.LGY_RY_JBXX.CSRQ
+  is '出生日期';
+comment on column YZTZHY.LGY_RY_JBXX.ZJXY
+  is '宗教信仰';
+comment on column YZTZHY.LGY_RY_JBXX.ZZMM
+  is '政治面貌';
+comment on column YZTZHY.LGY_RY_JBXX.WHCD
+  is '文化程度';
+comment on column YZTZHY.LGY_RY_JBXX.HYZK
+  is '婚姻状况';
+comment on column YZTZHY.LGY_RY_JBXX.BYZK
+  is '兵役状况';
+comment on column YZTZHY.LGY_RY_JBXX.SG
+  is '身高';
+comment on column YZTZHY.LGY_RY_JBXX.XX
+  is '血型';
+comment on column YZTZHY.LGY_RY_JBXX.LXDH
+  is '联系电话';
+comment on column YZTZHY.LGY_RY_JBXX.GJDQ
+  is '国家地区';
+comment on column YZTZHY.LGY_RY_JBXX.HJQH
+  is '户籍区划';
+comment on column YZTZHY.LGY_RY_JBXX.HJQHMC
+  is '户籍区划名称';
+comment on column YZTZHY.LGY_RY_JBXX.HJZRQ
+  is '户籍责任区';
+comment on column YZTZHY.LGY_RY_JBXX.HJXZ
+  is '户籍祥址';
+comment on column YZTZHY.LGY_RY_JBXX.RYLB
+  is '人员类别';
+comment on column YZTZHY.LGY_RY_JBXX.RYSX
+  is '人员属性';
+comment on column YZTZHY.LGY_RY_JBXX.DJSJ
+  is '登记时间';
+comment on column YZTZHY.LGY_RY_JBXX.DJDW
+  is '登记单位';
+comment on column YZTZHY.LGY_RY_JBXX.DJDWMC
+  is '登记单位名称';
+comment on column YZTZHY.LGY_RY_JBXX.XZZZRQ
+  is '现住址责任区';
+comment on column YZTZHY.LGY_RY_JBXX.XZZQH
+  is '现住址区划';
+comment on column YZTZHY.LGY_RY_JBXX.XZZQHMC
+  is '现住址区划名称';
+comment on column YZTZHY.LGY_RY_JBXX.XZZXZ
+  is '现住址详址';
+comment on column YZTZHY.LGY_RY_JBXX.XGSJ
+  is '修改时间';
+comment on column YZTZHY.LGY_RY_JBXX.SHZT
+  is '审核状态';
+comment on column YZTZHY.LGY_RY_JBXX.SHYY
+  is '审核原因';
+comment on column YZTZHY.LGY_RY_JBXX.RKSJ
+  is '入库时间';
+comment on column YZTZHY.LGY_RY_JBXX.BDBZ
+  is '绑定标志';
+comment on column YZTZHY.LGY_RY_JBXX.YPBZ
+  is '研判标志';
+comment on column YZTZHY.LGY_RY_JBXX.CSBS
+  is '传输标志';
+comment on column YZTZHY.LGY_RY_JBXX.YLZD1
+  is '预留';
+comment on column YZTZHY.LGY_RY_JBXX.YLZD2
+  is '预留字段2';
+comment on column YZTZHY.LGY_RY_JBXX.YLZD3
+  is '预留字段3,作为离职状态';
+comment on column YZTZHY.LGY_RY_JBXX.YLZD4
+  is '预留字段4';
+comment on column YZTZHY.LGY_RY_JBXX.DELFLAG
+  is '删除标志';
+comment on column YZTZHY.LGY_RY_JBXX.SENDFLAG
+  is '发送标志';
+comment on column YZTZHY.LGY_RY_JBXX.ZTBS
+  is '状态标识';
+comment on column YZTZHY.LGY_RY_JBXX.SHID
+  is '审核ID';
+comment on column YZTZHY.LGY_RY_JBXX.SHIP
+  is '审核IP地址';
+comment on column YZTZHY.LGY_RY_JBXX.SHSJ
+  is '审核时间';

@@ -1,0 +1,193 @@
+-- Create table
+create table T_RY_WBSWRYXX_BF
+(
+  RYBH      VARCHAR2(32) not null,
+  JQS       VARCHAR2(50),
+  SWBH      VARCHAR2(30),
+  SWKH      VARCHAR2(20),
+  WBBH      VARCHAR2(200),
+  WBFZR     VARCHAR2(30),
+  WBMC      VARCHAR2(100),
+  GMSFHM    VARCHAR2(18),
+  XM        VARCHAR2(30),
+  SXSJ      VARCHAR2(14),
+  XXSJ      VARCHAR2(14),
+  JLSXSJ    VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss'),
+  XZB       VARCHAR2(10),
+  YZB       VARCHAR2(10),
+  CSRQ      VARCHAR2(8),
+  XB        VARCHAR2(1),
+  RKSJ      VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss'),
+  HDXGXX    VARCHAR2(300),
+  MRRKSJC   VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss'),
+  WBDZ      VARCHAR2(100),
+  SSFDM     VARCHAR2(12),
+  SSFJDM    VARCHAR2(12),
+  WBPCS     VARCHAR2(200),
+  SWZDIPDZ  VARCHAR2(20),
+  SWZDMACDZ VARCHAR2(30),
+  SF        VARCHAR2(1 CHAR),
+  SCRKSJ    DATE,
+  ZXGXSJ    DATE,
+  JLMJ      CHAR(1)
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 16K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table T_RY_WBSWRYXX_BF
+  is '网吧上网人员';
+-- Add comments to the columns 
+comment on column T_RY_WBSWRYXX_BF.RYBH
+  is '人员编号
+';
+comment on column T_RY_WBSWRYXX_BF.JQS
+  is '机器数
+';
+comment on column T_RY_WBSWRYXX_BF.SWBH
+  is '涉网编号
+';
+comment on column T_RY_WBSWRYXX_BF.SWKH
+  is '上网卡号
+';
+comment on column T_RY_WBSWRYXX_BF.WBBH
+  is '网吧编号
+';
+comment on column T_RY_WBSWRYXX_BF.WBFZR
+  is '网吧负责人
+';
+comment on column T_RY_WBSWRYXX_BF.WBMC
+  is '网吧名称
+';
+comment on column T_RY_WBSWRYXX_BF.GMSFHM
+  is '公民身份号码
+';
+comment on column T_RY_WBSWRYXX_BF.XM
+  is '姓名
+';
+comment on column T_RY_WBSWRYXX_BF.SXSJ
+  is '上线时间
+';
+comment on column T_RY_WBSWRYXX_BF.XXSJ
+  is '下线时间
+';
+comment on column T_RY_WBSWRYXX_BF.JLSXSJ
+  is '记录刷新时间
+';
+comment on column T_RY_WBSWRYXX_BF.XZB
+  is 'X坐标
+';
+comment on column T_RY_WBSWRYXX_BF.YZB
+  is 'Y坐标
+';
+comment on column T_RY_WBSWRYXX_BF.CSRQ
+  is '出生日期
+';
+comment on column T_RY_WBSWRYXX_BF.XB
+  is '性别
+';
+comment on column T_RY_WBSWRYXX_BF.RKSJ
+  is '入库时间';
+comment on column T_RY_WBSWRYXX_BF.HDXGXX
+  is '活动相关信息';
+comment on column T_RY_WBSWRYXX_BF.MRRKSJC
+  is '入库时间戳';
+comment on column T_RY_WBSWRYXX_BF.WBDZ
+  is '网吧地址';
+comment on column T_RY_WBSWRYXX_BF.SSFDM
+  is '所属地';
+comment on column T_RY_WBSWRYXX_BF.SSFJDM
+  is '所属县分局';
+comment on column T_RY_WBSWRYXX_BF.WBPCS
+  is '网吧派出所';
+comment on column T_RY_WBSWRYXX_BF.SWZDIPDZ
+  is '上网终端IP地址';
+comment on column T_RY_WBSWRYXX_BF.SWZDMACDZ
+  is '上网终端MAC地址';
+comment on column T_RY_WBSWRYXX_BF.SF
+  is '身份';
+comment on column T_RY_WBSWRYXX_BF.SCRKSJ
+  is '首次入库时间';
+comment on column T_RY_WBSWRYXX_BF.ZXGXSJ
+  is '最新更新时间';
+comment on column T_RY_WBSWRYXX_BF.JLMJ
+  is '记录密级';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_RY_WBSWRYXX_BF
+  add constraint T_RY_WBSWRYXX_RYBH primary key (RYBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 2048M
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index T_RY_WBSWRYXX_GMSFHM on T_RY_WBSWRYXX_BF (GMSFHM)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_SSFJDM on T_RY_WBSWRYXX_BF (SSFJDM)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_SXSJ on T_RY_WBSWRYXX_BF (SXSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_WBBH on T_RY_WBSWRYXX_BF (WBBH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_XXSJ on T_RY_WBSWRYXX_BF (XXSJ)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on T_RY_WBSWRYXX_BF to ZHZX;

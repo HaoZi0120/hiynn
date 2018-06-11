@@ -1,0 +1,14 @@
+tldp	铁路订票信息
+XM	姓名
+ZJZL	证件种类
+ZJHM	证件号码
+FCRQ	发车日期
+TRAIN_NO	车次
+STARTTIME	发车时间
+FROM_STATION	出发站
+TO_STATION	到达站
+STRKSJ	省厅入库时间
+STXGSJ	省厅入库时间
+COACH	车厢号
+SEAT	座位号
+SALEDATE	购票时间【2014年3月13日起取消该字段】

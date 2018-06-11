@@ -1,0 +1,104 @@
+-- Create table
+create table TLDP
+(
+  XM           VARCHAR2(50),
+  ZJZL         VARCHAR2(50),
+  ZJHM         VARCHAR2(50),
+  FCRQ         VARCHAR2(50),
+  TRAIN_NO     VARCHAR2(50),
+  STARTTIME    VARCHAR2(50),
+  FROM_STATION VARCHAR2(50),
+  TO_STATION   VARCHAR2(50),
+  STRKSJ       VARCHAR2(50),
+  STXGSJ       VARCHAR2(50),
+  COACH        VARCHAR2(50),
+  SEAT         VARCHAR2(50),
+  SALEDATE     VARCHAR2(50),
+  R            VARCHAR2(100),
+  ZXGXSJ       DATE default sysdate
+)
+tablespace MHSJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table TLDP
+  is '铁路订票信息';
+-- Add comments to the columns 
+comment on column TLDP.XM
+  is '姓名';
+comment on column TLDP.ZJZL
+  is '证件种类';
+comment on column TLDP.ZJHM
+  is '证件号码';
+comment on column TLDP.FCRQ
+  is '发车日期';
+comment on column TLDP.TRAIN_NO
+  is '车次';
+comment on column TLDP.STARTTIME
+  is '发车时间';
+comment on column TLDP.FROM_STATION
+  is '出发站';
+comment on column TLDP.TO_STATION
+  is '到达站';
+comment on column TLDP.STRKSJ
+  is '省厅入库时间';
+comment on column TLDP.STXGSJ
+  is '省厅入库时间';
+comment on column TLDP.COACH
+  is '车厢号';
+comment on column TLDP.SEAT
+  is '座位号';
+comment on column TLDP.SALEDATE
+  is '购票时间【2014年3月13日起取消该字段】';
+-- Create/Recreate indexes 
+create index TLDP_FCRQ on TLDP (FCRQ)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index TLDP_FROM_STATION on TLDP (FROM_STATION)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index TLDP_TO_STATION on TLDP (TO_STATION)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index TLDP_ZJHM on TLDP (ZJHM)
+  tablespace MHSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

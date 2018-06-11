@@ -1,0 +1,144 @@
+-- Create table
+create table T_ZTXX_DHHMXXB
+(
+  ID     VARCHAR2(30) not null,
+  RKBM   VARCHAR2(30),
+  GMSFHM CHAR(18),
+  XM     VARCHAR2(50),
+  LXDH   VARCHAR2(18),
+  FSSJ   DATE,
+  BWLMC  VARCHAR2(30),
+  BZWMC  VARCHAR2(30),
+  ZJZDM  VARCHAR2(30),
+  ZJZDZ  VARCHAR2(100),
+  ZXGXSJ DATE,
+  HMLX   VARCHAR2(1),
+  HMZL   VARCHAR2(100),
+  DJDW   VARCHAR2(12),
+  DJSJ   DATE,
+  BZ     VARCHAR2(200),
+  SSQH   VARCHAR2(6),
+  LX     VARCHAR2(1),
+  RKSJ   DATE
+)
+tablespace TS_SJZX_ZTZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the columns 
+comment on column T_ZTXX_DHHMXXB.ID
+  is 'IDDE90021';
+comment on column T_ZTXX_DHHMXXB.RKBM
+  is '人口编码DE00577';
+comment on column T_ZTXX_DHHMXXB.GMSFHM
+  is '公民身份号码	DE00001';
+comment on column T_ZTXX_DHHMXXB.XM
+  is '姓名	DE00002';
+comment on column T_ZTXX_DHHMXXB.LXDH
+  is '联系电话	DE00216';
+comment on column T_ZTXX_DHHMXXB.FSSJ
+  is '业务发生时间	DE90475';
+comment on column T_ZTXX_DHHMXXB.BWLMC
+  is '数据来源表物理名称	DE90036';
+comment on column T_ZTXX_DHHMXXB.BZWMC
+  is '数据来源表中文名称	DE90799';
+comment on column T_ZTXX_DHHMXXB.ZJZDM
+  is '数据来源表主键字段名	DE90053';
+comment on column T_ZTXX_DHHMXXB.ZJZDZ
+  is '数据来源表主键字段值	DE90054';
+comment on column T_ZTXX_DHHMXXB.ZXGXSJ
+  is '最新更新时间	DE90802';
+comment on column T_ZTXX_DHHMXXB.HMLX
+  is '号码类型';
+comment on column T_ZTXX_DHHMXXB.HMZL
+  is '号码种类(有字典)';
+comment on column T_ZTXX_DHHMXXB.DJDW
+  is '号码提供单位代码';
+comment on column T_ZTXX_DHHMXXB.DJSJ
+  is '登记时间';
+comment on column T_ZTXX_DHHMXXB.BZ
+  is '备注';
+comment on column T_ZTXX_DHHMXXB.SSQH
+  is '所属区县';
+comment on column T_ZTXX_DHHMXXB.LX
+  is '数据类型(1,内部数据,2外部数据)';
+comment on column T_ZTXX_DHHMXXB.RKSJ
+  is '入库时间';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_ZTXX_DHHMXXB
+  add primary key (ID)
+  using index 
+  tablespace TS_SJZX_ZTZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index T_ZTXX_DHHMXXB_BWLMC on T_ZTXX_DHHMXXB (BWLMC)
+  tablespace TS_SJZX_ZTZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_ZTXX_DHHMXXB_GMSFHM on T_ZTXX_DHHMXXB (GMSFHM)
+  tablespace TS_SJZX_ZTZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_ZTXX_DHHMXXB_LXDH on T_ZTXX_DHHMXXB (LXDH)
+  tablespace TS_SJZX_ZTZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_ZTXX_DHHMXXB_XM on T_ZTXX_DHHMXXB (XM)
+  tablespace TS_SJZX_ZTZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_ZTXX_DHHMXXB_ZJ on T_ZTXX_DHHMXXB (BWLMC, ZJZDZ)
+  tablespace TS_SJZX_ZTZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on T_ZTXX_DHHMXXB to STQB;

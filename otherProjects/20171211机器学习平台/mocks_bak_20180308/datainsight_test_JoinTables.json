@@ -1,0 +1,86 @@
+{
+  "apps": [
+    {
+      "name": "ML-Platform 01",
+      "uuid": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "parents": [],
+      "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "context": [
+        {
+          "name": "SparkContext",
+          "params": {
+            "spark.master": "local[4]",
+            "spark.app.name": "factory root"
+          }
+        },
+        {
+          "name": "SparkSession",
+          "params": {
+          }
+        }
+      ],
+      "operators": [
+        {
+          "name": "DataProcess.ETL.ConnectDB",
+          "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "dialect": "hive2",
+            "hostname": "192.168.1.102",
+            "port": 10000,
+            "username": "zhouzhihao",
+            "password": "zhouzhihao123",
+            "database": "buscard",
+            "table": "tmp_card2"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DataProcess.ETL.ConnectDB",
+          "uuid": "5dcd2816-24bf-45cd-a535-c9a5e27fa283",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "dialect": "hive2",
+            "hostname": "192.168.1.102",
+            "port": 10000,
+            "username": "zhouzhihao",
+            "password": "zhouzhihao123",
+            "database": "buscard",
+            "table": "tmp_card1"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "DataProcess.ETL.JoinTables",
+          "uuid": "5ae9f832-0049-45cd-9918-3b50e9303417",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [
+            "17bbcbe2-655f-4834-88e6-e5ee71734269",
+            "5dcd2816-24bf-45cd-a535-c9a5e27fa283"
+          ],
+          "params": {
+            "jointype":"inner",
+            "key1":"card_no",
+            "key2":"card_no"
+          },
+          "ports": {
+            "in1": {
+              "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+              "port": "out"
+            },
+            "in2": {
+              "uuid": "5dcd2816-24bf-45cd-a535-c9a5e27fa283",
+              "port": "out"
+            }
+          }
+        }
+      ],
+      "ports": {
+      }
+    }
+  ]
+}

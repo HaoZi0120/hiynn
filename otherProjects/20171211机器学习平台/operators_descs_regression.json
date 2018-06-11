@@ -1,0 +1,1078 @@
+{
+	"categorydesc": "回归预测",
+	"categoryname": "Regression",
+	"operators": [
+		{
+			"operatordesc": "分析生存时间和变量之间的关系模型",
+			"operatorname": "AFT加速失效时间模型",
+			"operatorclazz": "AFTSurvivalRegression",
+			"operatorparams":[],
+			"operatorfields": [
+				{
+					"param": "fields",
+					"name": "选择的特征字段",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "label",
+					"name": "标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "censor",
+					"name": "结局列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "quantilepro",
+					"name": "分位概率数组",
+					"type": "Array[Double]",
+					"required": true,
+					"default": "",
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "quantilecol",
+					"name": "分位列名",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxIter",
+					"name": "最大迭代次数",
+					"type": "Int",
+					"required": false,
+					"default": 100,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxCategories",
+					"name": "连续特征数量阈值",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "tol",
+					"name": "迭代收敛值",
+					"type": "Double",
+					"required": true,
+					"default": "",
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "fitIntercept",
+					"name": "截距约束",
+					"type": "Boolean",
+					"required": false,
+					"default": false,
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				}
+			],
+			"operatorport": {
+				"inport": ["tra"],
+				"outport": ["mod"]
+			}
+		},
+		{
+			"operatordesc": "呈树形结构,基于特征的回归决策树模型",
+			"operatorname": "回归决策树模型",
+			"operatorclazz": "DecisionTree",
+			"operatorparams":[],
+			"operatorfields": [
+				{
+					"param": "categories",
+					"name": "分类特征",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "continuous",
+					"name": "连续特征",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "impurity",
+					"name": "误差标准",
+					"type": "String",
+					"required": false,
+					"default": "variance",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["variance"]
+						}
+					]
+				},
+				{
+					"param": "label",
+					"name": "标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "predictedLabel",
+					"name": "预测标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxCategories",
+					"name": "连续特征数量阈值",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxBins",
+					"name": "最大特征容器数量",
+					"type": "Int",
+					"required": false,
+					"default": 32,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxDepth",
+					"name": "最大深度",
+					"type": "Int",
+					"required": false,
+					"default": 5,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "minInstancesPerNode",
+					"name": "节点分割后最小实例数",
+					"type": "Int",
+					"required": false,
+					"default": 1,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "minInfoGain",
+					"name": "节点拆分最小信息增益",
+					"type": "Double",
+					"required": false,
+					"default": 0.0,
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				}
+			],
+			"operatorport": {
+				"inport": ["tra"],
+				"outport": ["mod"]
+			}
+		},
+		{
+			"operatordesc": "基于指数分布族的广义线性回归模型",
+			"operatorname": "广义线性回归模型",
+			"operatorclazz": "GeneralizedLinearRegression",
+			"operatorparams":[],
+			"operatorfields": [
+				{
+					"param": "fields",
+					"name": "选择的特征字段",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "label",
+					"name": "标签列",
+					"type": "String",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "solver",
+					"name": "结果优化计算函数",
+					"type": "Array",
+					"required": false,
+					"default": "irls",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["irls"]
+						}
+					]
+				},
+				{
+					"param": "maxIter",
+					"name": "最大迭代次数",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxCategories",
+					"name": "连续特征数量阈值",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "family",
+					"name": "指数分布簇类型",
+					"type": "Int",
+					"required": false,
+					"default": "gaussian",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["gaussian","binomial","poisson","gamma","tweedie"]
+						}
+					]
+				},
+				{
+					"param": "regParam",
+					"name": "正则化参数",
+					"type": "Double",
+					"required": true,
+					"default": "",
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "tol",
+					"name": "迭代收敛值",
+					"type": "Double",
+					"required": true,
+					"default": "",
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "fitIntercept",
+					"name": "截距约束",
+					"type": "Boolean",
+					"required": false,
+					"default": false,
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				}
+			],
+			"operatorport": {
+				"inport": ["tra"],
+				"outport": ["mod"]
+			}
+		},
+		{
+			"operatordesc": "利用数理统计回归分析来确定变量间相互依赖关系的线性回归模型",
+			"operatorname": "线性回归模型",
+			"operatorclazz": "LinearRegression",
+			"operatorparams":[],
+			"operatorfields": [
+				{
+					"param": "fields",
+					"name": "选择的特征字段",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "label",
+					"name": "标签列",
+					"type": "String",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "solver",
+					"name": "结果优化计算函数",
+					"type": "Array",
+					"required": false,
+					"default": "irls",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["irls"]
+						}
+					]
+				},
+				{
+					"param": "maxIter",
+					"name": "最大迭代次数",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxCategories",
+					"name": "连续特征数量阈值",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "弹性网络回归参数",
+					"name": "elasticNetParam",
+					"type": "Double",
+					"required": true,
+					"default": "",
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "regParam",
+					"name": "正则化参数",
+					"type": "Double",
+					"required": true,
+					"default": "",
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "tol",
+					"name": "迭代收敛值",
+					"type": "Double",
+					"required": true,
+					"default": "",
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "fitIntercept",
+					"name": "截距约束",
+					"type": "Boolean",
+					"required": false,
+					"default": false,
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "standardization",
+					"name": "是否独立训练集",
+					"type": "Boolean",
+					"required": false,
+					"default": true,
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				}
+			],
+			"operatorport": {
+				"inport": ["tra"],
+				"outport": ["mod"]
+			}
+		},
+		{
+			"operatordesc": "采用迭代多棵决策树训练的模型",
+			"operatorname": "GBT回归模型",
+			"operatorclazz": "GradientBoostedTree",
+			"operatorparams":[],
+			"operatorfields": [
+				{
+					"param": "categories",
+					"name": "分类特征",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "continuous",
+					"name": "连续特征",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "impurity",
+					"name": "误差标准",
+					"type": "String",
+					"required": false,
+					"default": "variance",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["variance"]
+						}
+					]
+				},
+				{
+					"param": "lossType",
+					"name": "损失函数类型",
+					"type": "String",
+					"required": false,
+					"default": "squared",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["squared","absolute"]
+						}
+					]
+				},
+				{
+					"param": "label",
+					"name": "标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "predictedLabel",
+					"name": "预测标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxCategories",
+					"name": "连续特征数量阈值",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxBins",
+					"name": "最大特征容器数量",
+					"type": "Int",
+					"required": false,
+					"default": 32,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxDepth",
+					"name": "最大深度",
+					"type": "Int",
+					"required": false,
+					"default": 5,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "minInstancesPerNode",
+					"name": "节点分割后最小实例数",
+					"type": "Int",
+					"required": false,
+					"default": 1,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "minInfoGain",
+					"name": "节点拆分最小信息增益",
+					"type": "Double",
+					"required": false,
+					"default": 0.0,
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "stepSize",
+					"name": "训练步长",
+					"type": "Double",
+					"required": false,
+					"default": 0.1,
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "subsamplingRate",
+					"name": "训练集取样比例",
+					"type": "Double",
+					"required": false,
+					"default": 1.0,
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				}
+			],
+			"operatorport": {
+				"inport": ["tra"],
+				"outport": ["mod"]
+			}
+		},
+		{
+			"operatordesc": "具单调性的保序回归模型",
+			"operatorname": "保序回归模型",
+			"operatorclazz": "IsotonicRegression",
+			"operatorparams":[],
+			"operatorfields": [
+				{
+					"param": "fields",
+					"name": "分类特征",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "featureIndex",
+					"name": "特征下标",
+					"type": "Int",
+					"required": false,
+					"default": 0,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "label",
+					"name": "标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "isotonic",
+					"name": "结果序列是否为升序",
+					"type": "Boolean",
+					"required": false,
+					"default": true,
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": [true,false]
+						}
+					]
+				}
+			],
+			"operatorport": {
+				"inport": ["tra"],
+				"outport": ["mod"]
+			}
+		},
+		{
+			"operatordesc": "利用多棵树对样本进行训练并预测的随机森林模型",
+			"operatorname": "随机森林回归模型",
+			"operatorclazz": "RandomForest",
+			"operatorparams":[],
+			"operatorfields": [
+				{
+					"param": "categories",
+					"name": "分类特征",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "continuous",
+					"name": "连续特征",
+					"type": "Array[String]",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "impurity",
+					"name": "误差标准",
+					"type": "String",
+					"required": false,
+					"default": "variance",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["variance"]
+						}
+					]
+				},
+				{
+					"param": "label",
+					"name": "标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "predictedLabel",
+					"name": "预测标签列",
+					"type": "Array",
+					"required": true,
+					"default": "",
+					"interface": "selectfields",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "featureSubsetStrategy",
+					"name": "特征划分方式",
+					"type": "String",
+					"required": false,
+					"default": "auto",
+					"interface": "droplist",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						},
+						{
+							"type": "inset",
+							"condition": ["auto", "all","onethird","sqrt","log2","n"]
+						}
+					]
+				},
+				{
+					"param": "maxCategories",
+					"name": "连续特征数量阈值",
+					"type": "Int",
+					"required": true,
+					"default": "",
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "numTrees",
+					"name": "树的数量",
+					"type": "Int",
+					"required": false,
+					"default": 20,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxBins",
+					"name": "最大特征容器数量",
+					"type": "Int",
+					"required": false,
+					"default": 32,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "maxDepth",
+					"name": "最大深度",
+					"type": "Int",
+					"required": false,
+					"default": 5,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "minInstancesPerNode",
+					"name": "节点分割后最小实例数",
+					"type": "Int",
+					"required": false,
+					"default": 1,
+					"interface": "inputnum",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "minInfoGain",
+					"name": "节点拆分最小信息增益",
+					"type": "Double",
+					"required": false,
+					"default": 0.0,
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				},
+				{
+					"param": "subsamplingRate",
+					"name": "训练集取样比例",
+					"type": "Double",
+					"required": false,
+					"default": 1.0,
+					"interface": "input",
+					"constrain": [
+						{
+							"type": "nonempty",
+							"condition": ""
+						}
+					]
+				}
+			],
+			"operatorport": {
+				"inport": ["tra"],
+				"outport": ["mod"]
+			}
+		}
+	]
+}

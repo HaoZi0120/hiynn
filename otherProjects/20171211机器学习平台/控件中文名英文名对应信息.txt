@@ -1,0 +1,16 @@
+输入框：
+input
+输入框数字：
+inputnum
+下拉列表：
+droplist
+多行文本：
+mtext
+选择表字段：
+selectfields
+表连接设置：
+jointables
+字段过滤器：
+filterfields
+SQL脚本：
+sql

@@ -1,0 +1,53 @@
+-- Create table
+create table GJ_HANDSET_CALL_INFO
+(
+  XXZJBH      VARCHAR2(32) not null,
+  FROM_NUM    VARCHAR2(2000),
+  TO_NUM      VARCHAR2(2000),
+  CALL_TIME   DATE,
+  DURA_TIME   VARCHAR2(100),
+  ISDELETE    NUMBER(4),
+  LOCALACTION VARCHAR2(50)
+)
+tablespace ZWSJ
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table GJ_HANDSET_CALL_INFO
+  is '通话记录';
+-- Add comments to the columns 
+comment on column GJ_HANDSET_CALL_INFO.XXZJBH
+  is '信息主键编号';
+comment on column GJ_HANDSET_CALL_INFO.FROM_NUM
+  is '主叫方';
+comment on column GJ_HANDSET_CALL_INFO.TO_NUM
+  is '被叫方';
+comment on column GJ_HANDSET_CALL_INFO.CALL_TIME
+  is '通话时间';
+comment on column GJ_HANDSET_CALL_INFO.DURA_TIME
+  is '通话时长';
+comment on column GJ_HANDSET_CALL_INFO.ISDELETE
+  is '是否删除，0没删，1已删';
+comment on column GJ_HANDSET_CALL_INFO.LOCALACTION
+  is '本地动作:拨出/拨入/其他';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table GJ_HANDSET_CALL_INFO
+  add constraint PK_6_XXZJBH primary key (XXZJBH)
+  using index 
+  tablespace ZWSJ
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

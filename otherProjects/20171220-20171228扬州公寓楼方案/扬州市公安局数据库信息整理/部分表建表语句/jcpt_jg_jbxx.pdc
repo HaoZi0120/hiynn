@@ -1,0 +1,416 @@
+-- Create table
+create table JCPT_JG_JBXX
+(
+  JGBH      VARCHAR2(20) not null,
+  DZBH      VARCHAR2(20),
+  DWDM      VARCHAR2(20),
+  DWMC      VARCHAR2(100),
+  WWM       VARCHAR2(60),
+  DWDH      VARCHAR2(30),
+  DWCZ      VARCHAR2(30),
+  FRDB      VARCHAR2(30),
+  ZAFZR     VARCHAR2(30),
+  XYLB      CHAR(4),
+  ZGBM      VARCHAR2(50),
+  JJXZ      CHAR(3),
+  JYFW      VARCHAR2(400),
+  CYRS      NUMBER,
+  GLBM      CHAR(1),
+  GLJB      CHAR(1),
+  FHDJ      CHAR(1),
+  YYZZBH    VARCHAR2(100),
+  YXQX      CHAR(8),
+  ZCQH      CHAR(6),
+  ZCDZ      VARCHAR2(150),
+  ZCRQ      CHAR(8),
+  ZCZB      NUMBER,
+  DWSX      CHAR(60),
+  ZXSJ      CHAR(8),
+  ZXYY      VARCHAR2(50),
+  SZZRQ     CHAR(12),
+  GYDWLX    CHAR(1),
+  DWDZYX    VARCHAR2(50),
+  SWDJH     VARCHAR2(21),
+  JGZCH     VARCHAR2(21),
+  DSZ       VARCHAR2(30),
+  ZJL       VARCHAR2(30),
+  FZJG      VARCHAR2(100),
+  FZSJ      CHAR(8),
+  KYSJ      CHAR(8),
+  KHYX      VARCHAR2(100),
+  JBZH      VARCHAR2(50),
+  QTZH      VARCHAR2(50),
+  FRZZ      VARCHAR2(200),
+  FRLXDH    VARCHAR2(30),
+  DJR       CHAR(6),
+  DJSJ      VARCHAR2(14),
+  ZXBS      VARCHAR2(1),
+  ZDDWBS    VARCHAR2(1),
+  TZGJ      VARCHAR2(3),
+  JGSSXQ    VARCHAR2(6),
+  JGJLX     VARCHAR2(12),
+  JGMLPH    VARCHAR2(35),
+  JGMPHZ    VARCHAR2(1),
+  JGMLXZ    VARCHAR2(200),
+  NSSJ      CHAR(8),
+  FDDBRSFZH VARCHAR2(20),
+  SFYWFJL   CHAR(1),
+  GGGDCZQK  VARCHAR2(2000),
+  BMJB      CHAR(2),
+  BZ        VARCHAR2(1000),
+  SJDWBH    VARCHAR2(20),
+  SJDWMC    VARCHAR2(60),
+  DJDW      CHAR(12),
+  XGR       CHAR(6),
+  XGDW      CHAR(12),
+  XGSJ      VARCHAR2(14) default TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS') not null,
+  DJRXM     VARCHAR2(30),
+  DJDWMC    VARCHAR2(100),
+  XGRXM     VARCHAR2(30),
+  XGDWMC    VARCHAR2(100),
+  JJLX      VARCHAR2(3),
+  YZB       BLOB,
+  XZB       BLOB,
+  BZSJ      VARCHAR2(14),
+  BZDW      VARCHAR2(12),
+  BZR       VARCHAR2(6),
+  BZRXM     VARCHAR2(30),
+  BZDWMC    VARCHAR2(100),
+  GXSJ      VARCHAR2(14),
+  GXRXM     VARCHAR2(30),
+  GXR       VARCHAR2(6),
+  GXDWMC    VARCHAR2(100),
+  GXDW      VARCHAR2(12),
+  SCRKSJ    DATE,
+  ZXGXSJ    DATE,
+  JLMJ      CHAR(1) default '5'
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table JCPT_JG_JBXX
+  is '机构基本信息';
+-- Add comments to the columns 
+comment on column JCPT_JG_JBXX.JGBH
+  is '机构编号';
+comment on column JCPT_JG_JBXX.DZBH
+  is '机构地址编号－地址编号';
+comment on column JCPT_JG_JBXX.DWDM
+  is '组织机构代码';
+comment on column JCPT_JG_JBXX.DWMC
+  is '单位名称';
+comment on column JCPT_JG_JBXX.WWM
+  is '外文名';
+comment on column JCPT_JG_JBXX.DWDH
+  is '单位电话';
+comment on column JCPT_JG_JBXX.DWCZ
+  is '单位传真';
+comment on column JCPT_JG_JBXX.FRDB
+  is '法人代表(负责人)';
+comment on column JCPT_JG_JBXX.ZAFZR
+  is '治安负责人';
+comment on column JCPT_JG_JBXX.XYLB
+  is '单位类别－行业类别';
+comment on column JCPT_JG_JBXX.ZGBM
+  is '主管部门';
+comment on column JCPT_JG_JBXX.JJXZ
+  is '经济性质';
+comment on column JCPT_JG_JBXX.JYFW
+  is '经营范围';
+comment on column JCPT_JG_JBXX.CYRS
+  is '从业人数';
+comment on column JCPT_JG_JBXX.GLBM
+  is '管理部门－特种行业管理部门';
+comment on column JCPT_JG_JBXX.GLJB
+  is '管理级别－管理级别';
+comment on column JCPT_JG_JBXX.FHDJ
+  is '消防等级－消防等级';
+comment on column JCPT_JG_JBXX.YYZZBH
+  is '营业执照号';
+comment on column JCPT_JG_JBXX.YXQX
+  is '有效期限至';
+comment on column JCPT_JG_JBXX.ZCQH
+  is '注册区划－行政区划';
+comment on column JCPT_JG_JBXX.ZCDZ
+  is '注册地址';
+comment on column JCPT_JG_JBXX.ZCRQ
+  is '注册日期';
+comment on column JCPT_JG_JBXX.ZCZB
+  is '注册资本';
+comment on column JCPT_JG_JBXX.DWSX
+  is '单位属性－单位属性';
+comment on column JCPT_JG_JBXX.ZXSJ
+  is '注销时间';
+comment on column JCPT_JG_JBXX.ZXYY
+  is '注销原因';
+comment on column JCPT_JG_JBXX.SZZRQ
+  is '警务责任区－单位编码';
+comment on column JCPT_JG_JBXX.GYDWLX
+  is '雇佣单位类型－雇佣单位类型';
+comment on column JCPT_JG_JBXX.DWDZYX
+  is '单位电子邮箱';
+comment on column JCPT_JG_JBXX.SWDJH
+  is '税务登记号';
+comment on column JCPT_JG_JBXX.JGZCH
+  is '注册号';
+comment on column JCPT_JG_JBXX.DSZ
+  is '董事长';
+comment on column JCPT_JG_JBXX.ZJL
+  is '总经理';
+comment on column JCPT_JG_JBXX.FZJG
+  is '分支机构';
+comment on column JCPT_JG_JBXX.FZSJ
+  is '发照日期';
+comment on column JCPT_JG_JBXX.KYSJ
+  is '开业时间';
+comment on column JCPT_JG_JBXX.KHYX
+  is '开户银行';
+comment on column JCPT_JG_JBXX.JBZH
+  is '基本账号';
+comment on column JCPT_JG_JBXX.QTZH
+  is '其他账号';
+comment on column JCPT_JG_JBXX.FRZZ
+  is '法人住址';
+comment on column JCPT_JG_JBXX.FRLXDH
+  is '法人联系电话';
+comment on column JCPT_JG_JBXX.DJR
+  is '登记人';
+comment on column JCPT_JG_JBXX.DJSJ
+  is '登记时间';
+comment on column JCPT_JG_JBXX.ZXBS
+  is '注销标识－注销标识';
+comment on column JCPT_JG_JBXX.ZDDWBS
+  is '重点单位标识－重点等级';
+comment on column JCPT_JG_JBXX.TZGJ
+  is '投资国家－国籍';
+comment on column JCPT_JG_JBXX.JGSSXQ
+  is '省市县区－行政区划';
+comment on column JCPT_JG_JBXX.JGJLX
+  is '街路巷－街路巷';
+comment on column JCPT_JG_JBXX.JGMLPH
+  is '门楼牌号';
+comment on column JCPT_JG_JBXX.JGMPHZ
+  is '门牌后缀－门牌后缀';
+comment on column JCPT_JG_JBXX.JGMLXZ
+  is '门楼详址';
+comment on column JCPT_JG_JBXX.NSSJ
+  is '年审时间';
+comment on column JCPT_JG_JBXX.FDDBRSFZH
+  is '法定代表人身份证号';
+comment on column JCPT_JG_JBXX.SFYWFJL
+  is '是否有违法经历';
+comment on column JCPT_JG_JBXX.GGGDCZQK
+  is '各个股东出资情况';
+comment on column JCPT_JG_JBXX.BMJB
+  is '保密级别－保密级别';
+comment on column JCPT_JG_JBXX.BZ
+  is '备注';
+comment on column JCPT_JG_JBXX.SJDWBH
+  is '上级单位编号';
+comment on column JCPT_JG_JBXX.SJDWMC
+  is '上级单位名称';
+comment on column JCPT_JG_JBXX.DJDW
+  is '登记单位－单位编码';
+comment on column JCPT_JG_JBXX.XGR
+  is '修改人';
+comment on column JCPT_JG_JBXX.XGDW
+  is '修改单位';
+comment on column JCPT_JG_JBXX.XGSJ
+  is '修改日期';
+comment on column JCPT_JG_JBXX.DJRXM
+  is '登记人姓名';
+comment on column JCPT_JG_JBXX.DJDWMC
+  is '登记单位名称';
+comment on column JCPT_JG_JBXX.XGRXM
+  is '修改人姓名';
+comment on column JCPT_JG_JBXX.XGDWMC
+  is '修改单位名称';
+comment on column JCPT_JG_JBXX.JJLX
+  is '经济类型';
+comment on column JCPT_JG_JBXX.YZB
+  is '机构Y坐标';
+comment on column JCPT_JG_JBXX.XZB
+  is '机构X坐标';
+comment on column JCPT_JG_JBXX.BZSJ
+  is '标注时间';
+comment on column JCPT_JG_JBXX.BZDW
+  is '标注单位';
+comment on column JCPT_JG_JBXX.BZR
+  is '标注人';
+comment on column JCPT_JG_JBXX.BZRXM
+  is '标注人姓名';
+comment on column JCPT_JG_JBXX.BZDWMC
+  is '标注单位名称';
+comment on column JCPT_JG_JBXX.GXSJ
+  is '更新时间';
+comment on column JCPT_JG_JBXX.GXRXM
+  is '更新人姓名';
+comment on column JCPT_JG_JBXX.GXR
+  is '更新人';
+comment on column JCPT_JG_JBXX.GXDWMC
+  is '更新单位名称';
+comment on column JCPT_JG_JBXX.GXDW
+  is '更新单位';
+comment on column JCPT_JG_JBXX.SCRKSJ
+  is '首次入库时间';
+comment on column JCPT_JG_JBXX.ZXGXSJ
+  is '最新更新时间';
+comment on column JCPT_JG_JBXX.JLMJ
+  is '记录密级';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table JCPT_JG_JBXX
+  add primary key (JGBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index JCPT_JG_JBXX_DJDW on JCPT_JG_JBXX (DJDW)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_DJSJ on JCPT_JG_JBXX (DJSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_DWSX on JCPT_JG_JBXX (DWSX)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_FHDJ on JCPT_JG_JBXX (FHDJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_FRZZ on JCPT_JG_JBXX (FRZZ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_JGSSXQ on JCPT_JG_JBXX (JGSSXQ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_XGSJ on JCPT_JG_JBXX (XGSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_XYLB on JCPT_JG_JBXX (XYLB)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_ZAFZR on JCPT_JG_JBXX (ZAFZR)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_ZCDZ on JCPT_JG_JBXX (ZCDZ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_ZXBS on JCPT_JG_JBXX (ZXBS)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_JBXX_ZXGXSJ on JCPT_JG_JBXX (ZXGXSJ)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on JCPT_JG_JBXX to ZHZX;

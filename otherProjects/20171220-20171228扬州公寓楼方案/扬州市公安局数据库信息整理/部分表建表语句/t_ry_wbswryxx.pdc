@@ -1,0 +1,115 @@
+-- Create table
+create table T_RY_WBSWRYXX
+(
+  RYBH      VARCHAR2(32) not null,
+  JQS       VARCHAR2(50),
+  SWBH      VARCHAR2(30),
+  SWKH      VARCHAR2(20),
+  WBBH      VARCHAR2(200),
+  WBFZR     VARCHAR2(30),
+  WBMC      VARCHAR2(100),
+  GMSFHM    VARCHAR2(18),
+  XM        VARCHAR2(30),
+  SXSJ      VARCHAR2(14),
+  XXSJ      VARCHAR2(14),
+  JLSXSJ    VARCHAR2(14),
+  XZB       VARCHAR2(10),
+  YZB       VARCHAR2(10),
+  CSRQ      VARCHAR2(8),
+  XB        VARCHAR2(1),
+  RKSJ      VARCHAR2(14),
+  HDXGXX    VARCHAR2(300),
+  MRRKSJC   VARCHAR2(14),
+  WBDZ      VARCHAR2(100),
+  SSFDM     VARCHAR2(12),
+  SSFJDM    VARCHAR2(12),
+  WBPCS     VARCHAR2(200),
+  SWZDIPDZ  VARCHAR2(20),
+  SWZDMACDZ VARCHAR2(30),
+  SF        VARCHAR2(1 CHAR),
+  SCRKSJ    DATE,
+  ZXGXSJ    DATE,
+  JLMJ      CHAR(1)
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_RY_WBSWRYXX
+  add constraint T_RY_WBSWRYXX_RYBH_1 primary key (RYBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index T_RY_WBSWRYXX_GMSFHM_1 on T_RY_WBSWRYXX (GMSFHM)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_SSFJDM_1 on T_RY_WBSWRYXX (SSFJDM)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_SXSJ_1 on T_RY_WBSWRYXX (SXSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_WBBH_1 on T_RY_WBSWRYXX (WBBH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index T_RY_WBSWRYXX_XXSJ_1 on T_RY_WBSWRYXX (XXSJ)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on T_RY_WBSWRYXX to ZHZX;

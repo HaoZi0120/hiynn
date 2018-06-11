@@ -1,0 +1,440 @@
+-- Create table
+create table JCPT_JCJ_JJXX
+(
+  JJBH     VARCHAR2(20) not null,
+  JJDBH    VARCHAR2(30),
+  PJDBH    VARCHAR2(30),
+  GLJJDBH  VARCHAR2(30),
+  JJLYH    VARCHAR2(14),
+  PJLYH    VARCHAR2(14),
+  LDGBH    VARCHAR2(20),
+  JJYXM    VARCHAR2(30),
+  PJYXM    VARCHAR2(30),
+  LHLBDM   CHAR(2),
+  BJDHSJ   VARCHAR2(14),
+  BJDH     VARCHAR2(20),
+  BJDHHM   VARCHAR2(200),
+  BJDHDZ   VARCHAR2(200),
+  THSC     VARCHAR2(4),
+  BJR      VARCHAR2(30),
+  BJRXB    CHAR(1),
+  LXDH     VARCHAR2(50),
+  BJXS     CHAR(2) not null,
+  BJLX     CHAR(6),
+  SFDD     VARCHAR2(200),
+  BJNR     VARCHAR2(2000) not null,
+  BCJJNR   VARCHAR2(400),
+  SJCPH    VARCHAR2(100),
+  CLLX     CHAR(2),
+  SYQX     VARCHAR2(100),
+  CLQX     VARCHAR2(100),
+  HZDJ     CHAR(2),
+  SFZDDW   CHAR(1),
+  ZDDWBM   VARCHAR2(11),
+  JZLB     CHAR(2),
+  JZJG     CHAR(2),
+  QHCS     CHAR(4),
+  BZWQK    VARCHAR2(100),
+  BLQK     VARCHAR2(100),
+  SFBW     VARCHAR2(100),
+  RSWXZ    VARCHAR2(100),
+  YFWXWZ   CHAR(1),
+  YWBZXL   CHAR(1),
+  YFTY     CHAR(1),
+  YWBKRY   CHAR(1),
+  GIS_X    VARCHAR2(12),
+  GIS_Y    VARCHAR2(12),
+  SFZXXS   CHAR(1),
+  BJTDYY   VARCHAR2(400),
+  PJSJ     VARCHAR2(14),
+  BJCJYJ   VARCHAR2(2000),
+  EJDDSJ   VARCHAR2(14),
+  EJJSSJ   VARCHAR2(14),
+  EJXFSJ   VARCHAR2(14),
+  EJJSR    CHAR(6),
+  EJJSRXM  VARCHAR2(30),
+  EJJSDW   CHAR(12),
+  EJJSDWMC VARCHAR2(100),
+  SJDDSJ   VARCHAR2(14),
+  SJJSSJ   VARCHAR2(14),
+  SJJSR    CHAR(6),
+  SJJSRXM  VARCHAR2(30),
+  SJJSD    CHAR(12),
+  SJJSDWMC VARCHAR2(100),
+  CJBS     CHAR(1),
+  DJDW     CHAR(12),
+  DJR      CHAR(6),
+  DJSJ     VARCHAR2(14) not null,
+  XGR      CHAR(6),
+  XGSJ     VARCHAR2(14) not null,
+  XGDW     CHAR(12),
+  DJRXM    VARCHAR2(30),
+  DJDWMC   VARCHAR2(100),
+  XGRXM    VARCHAR2(30),
+  XGDWMC   VARCHAR2(100),
+  JJRQSJ   VARCHAR2(14),
+  JJDW     CHAR(12),
+  JJDWMC   VARCHAR2(100),
+  JJR      CHAR(6),
+  JJRXM    VARCHAR2(30),
+  YJDW     VARCHAR2(100),
+  YJSJ     VARCHAR2(14),
+  YJSM     VARCHAR2(400),
+  YJR      VARCHAR2(30),
+  JJXZQH   CHAR(6),
+  JJGXDW   VARCHAR2(12),
+  FKYQ     VARCHAR2(2),
+  SFYFDX   VARCHAR2(1),
+  JJDXNR   VARCHAR2(2000),
+  JJDXSJ   VARCHAR2(14),
+  SBSJ     VARCHAR2(14),
+  SBNR     VARCHAR2(2000),
+  CDCLBM   VARCHAR2(400),
+  JJLX     VARCHAR2(1),
+  ZDYJR    VARCHAR2(30),
+  ZDYJDW   VARCHAR2(100),
+  ZDYJSJ   VARCHAR2(14),
+  ZDYJSM   VARCHAR2(400),
+  STRKSJ   VARCHAR2(14),
+  STXGSJ   VARCHAR2(14),
+  SCRKSJ   DATE,
+  ZXGXSJ   DATE,
+  JLMJ     CHAR(1) default '5'
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table JCPT_JCJ_JJXX
+  is '接警信息';
+-- Add comments to the columns 
+comment on column JCPT_JCJ_JJXX.JJBH
+  is '接警编号';
+comment on column JCPT_JCJ_JJXX.JJDBH
+  is '接警接警单号';
+comment on column JCPT_JCJ_JJXX.PJDBH
+  is '接警派警单号';
+comment on column JCPT_JCJ_JJXX.GLJJDBH
+  is '接警关联接警编号';
+comment on column JCPT_JCJ_JJXX.JJLYH
+  is '接警接警录音编号';
+comment on column JCPT_JCJ_JJXX.PJLYH
+  is '接警派警录音编号';
+comment on column JCPT_JCJ_JJXX.LDGBH
+  is '接警路灯杆编号';
+comment on column JCPT_JCJ_JJXX.JJYXM
+  is '接警员姓名';
+comment on column JCPT_JCJ_JJXX.PJYXM
+  is '接警派警员姓名';
+comment on column JCPT_JCJ_JJXX.LHLBDM
+  is '接警来话类别';
+comment on column JCPT_JCJ_JJXX.BJDHSJ
+  is '接警报警时间';
+comment on column JCPT_JCJ_JJXX.BJDH
+  is '接警报警电话';
+comment on column JCPT_JCJ_JJXX.BJDHHM
+  is '接警报警电话用户姓名';
+comment on column JCPT_JCJ_JJXX.BJDHDZ
+  is '接警报警电话用户地址';
+comment on column JCPT_JCJ_JJXX.THSC
+  is '接警通话时长';
+comment on column JCPT_JCJ_JJXX.BJR
+  is '接警报警人';
+comment on column JCPT_JCJ_JJXX.BJRXB
+  is '接警报警人性别';
+comment on column JCPT_JCJ_JJXX.LXDH
+  is '接警报警人联系电话';
+comment on column JCPT_JCJ_JJXX.BJXS
+  is '接警报警方式';
+comment on column JCPT_JCJ_JJXX.BJLX
+  is '接警报警类型';
+comment on column JCPT_JCJ_JJXX.SFDD
+  is '接警事发地址';
+comment on column JCPT_JCJ_JJXX.BJNR
+  is '接警报警内容';
+comment on column JCPT_JCJ_JJXX.BCJJNR
+  is '接警补充接警内容';
+comment on column JCPT_JCJ_JJXX.SJCPH
+  is '接警涉警车牌';
+comment on column JCPT_JCJ_JJXX.CLLX
+  is '接警车辆类型';
+comment on column JCPT_JCJ_JJXX.SYQX
+  is '接警伤员去向';
+comment on column JCPT_JCJ_JJXX.CLQX
+  is '接警车辆去向';
+comment on column JCPT_JCJ_JJXX.HZDJ
+  is '接警火灾等级';
+comment on column JCPT_JCJ_JJXX.SFZDDW
+  is '接警是否重点单位';
+comment on column JCPT_JCJ_JJXX.ZDDWBM
+  is '接警重点单位编码';
+comment on column JCPT_JCJ_JJXX.JZLB
+  is '接警建筑类别';
+comment on column JCPT_JCJ_JJXX.JZJG
+  is '接警建筑结构';
+comment on column JCPT_JCJ_JJXX.QHCS
+  is '接警起火场所';
+comment on column JCPT_JCJ_JJXX.BZWQK
+  is '接警建(构)筑物情况';
+comment on column JCPT_JCJ_JJXX.BLQK
+  is '接警毗领情况';
+comment on column JCPT_JCJ_JJXX.SFBW
+  is '接警事发部位';
+comment on column JCPT_JCJ_JJXX.RSWXZ
+  is '接警燃烧物性质';
+comment on column JCPT_JCJ_JJXX.YFWXWZ
+  is '接警有否危险物质';
+comment on column JCPT_JCJ_JJXX.YWBZXL
+  is '接警有无爆炸/泄漏';
+comment on column JCPT_JCJ_JJXX.YFTY
+  is '接警有否逃逸';
+comment on column JCPT_JCJ_JJXX.YWBKRY
+  is '接警有无被困人员';
+comment on column JCPT_JCJ_JJXX.GIS_X
+  is '接警X坐标';
+comment on column JCPT_JCJ_JJXX.GIS_Y
+  is '接警Y坐标';
+comment on column JCPT_JCJ_JJXX.SFZXXS
+  is '接警是否符合自行协商处理';
+comment on column JCPT_JCJ_JJXX.BJTDYY
+  is '接警退单原因';
+comment on column JCPT_JCJ_JJXX.PJSJ
+  is '接警处警单派警时间';
+comment on column JCPT_JCJ_JJXX.BJCJYJ
+  is '接警处警意见';
+comment on column JCPT_JCJ_JJXX.EJDDSJ
+  is '二级接警单位到达时间';
+comment on column JCPT_JCJ_JJXX.EJJSSJ
+  is '二级接警单位接收时间';
+comment on column JCPT_JCJ_JJXX.EJXFSJ
+  is '二级接警单位下发时间';
+comment on column JCPT_JCJ_JJXX.EJJSR
+  is '二级接警单位接收人';
+comment on column JCPT_JCJ_JJXX.EJJSRXM
+  is '二级接警单位接收人姓名';
+comment on column JCPT_JCJ_JJXX.EJJSDW
+  is '二级接警单位';
+comment on column JCPT_JCJ_JJXX.EJJSDWMC
+  is '二级接警单位名称';
+comment on column JCPT_JCJ_JJXX.SJDDSJ
+  is '三级接警单位到达时间';
+comment on column JCPT_JCJ_JJXX.SJJSSJ
+  is '三级接警单位接收时间';
+comment on column JCPT_JCJ_JJXX.SJJSR
+  is '三级接警单位接收人';
+comment on column JCPT_JCJ_JJXX.SJJSRXM
+  is '三级接警单位接收人姓名';
+comment on column JCPT_JCJ_JJXX.SJJSD
+  is '三级接警单位';
+comment on column JCPT_JCJ_JJXX.SJJSDWMC
+  is '三级接警单位名称';
+comment on column JCPT_JCJ_JJXX.CJBS
+  is '接警处警标识';
+comment on column JCPT_JCJ_JJXX.DJDW
+  is '接警登记单位';
+comment on column JCPT_JCJ_JJXX.DJR
+  is '接警登记人';
+comment on column JCPT_JCJ_JJXX.DJSJ
+  is '接警登记时间';
+comment on column JCPT_JCJ_JJXX.XGR
+  is '接警修改人';
+comment on column JCPT_JCJ_JJXX.XGSJ
+  is '接警修改时间';
+comment on column JCPT_JCJ_JJXX.XGDW
+  is '接警修改单位';
+comment on column JCPT_JCJ_JJXX.DJRXM
+  is '接警登记人姓名';
+comment on column JCPT_JCJ_JJXX.DJDWMC
+  is '接警登记单位名称';
+comment on column JCPT_JCJ_JJXX.XGRXM
+  is '接警修改人姓名';
+comment on column JCPT_JCJ_JJXX.XGDWMC
+  is '接警修改单位名称';
+comment on column JCPT_JCJ_JJXX.JJRQSJ
+  is '接警日期时间';
+comment on column JCPT_JCJ_JJXX.JJDW
+  is '接警单位';
+comment on column JCPT_JCJ_JJXX.JJDWMC
+  is '接警单位名称';
+comment on column JCPT_JCJ_JJXX.JJR
+  is '接警人';
+comment on column JCPT_JCJ_JJXX.JJRXM
+  is '接警人姓名';
+comment on column JCPT_JCJ_JJXX.YJDW
+  is '接警移交单位';
+comment on column JCPT_JCJ_JJXX.YJSJ
+  is '接警移交时间';
+comment on column JCPT_JCJ_JJXX.YJSM
+  is '接警移交说明';
+comment on column JCPT_JCJ_JJXX.YJR
+  is '接警移交人';
+comment on column JCPT_JCJ_JJXX.JJXZQH
+  is '接警行政区划';
+comment on column JCPT_JCJ_JJXX.JJGXDW
+  is '接警管辖单位';
+comment on column JCPT_JCJ_JJXX.FKYQ
+  is '反馈要求';
+comment on column JCPT_JCJ_JJXX.SFYFDX
+  is '是否已发交通事故自处告知短信';
+comment on column JCPT_JCJ_JJXX.JJDXNR
+  is '交警短信内容';
+comment on column JCPT_JCJ_JJXX.JJDXSJ
+  is '交警短信发送时间';
+comment on column JCPT_JCJ_JJXX.SBSJ
+  is '上报时间';
+comment on column JCPT_JCJ_JJXX.SBNR
+  is '上报内容';
+comment on column JCPT_JCJ_JJXX.CDCLBM
+  is '出动车辆编码';
+comment on column JCPT_JCJ_JJXX.SCRKSJ
+  is '首次入库时间';
+comment on column JCPT_JCJ_JJXX.ZXGXSJ
+  is '最新更新时间';
+comment on column JCPT_JCJ_JJXX.JLMJ
+  is '记录密级';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table JCPT_JCJ_JJXX
+  add primary key (JJBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index JCPT_JCJ_JJXX_BJLX on JCPT_JCJ_JJXX (BJLX)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_BJXS on JCPT_JCJ_JJXX (BJXS)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_CJBS on JCPT_JCJ_JJXX (CJBS)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_DJDW on JCPT_JCJ_JJXX (DJDW)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_DJSJ on JCPT_JCJ_JJXX (DJSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create bitmap index JCPT_JCJ_JJXX_GXDW on JCPT_JCJ_JJXX (SUBSTR(JJGXDW,7,2))
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_JJDBH on JCPT_JCJ_JJXX (JJDBH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_JJDW on JCPT_JCJ_JJXX (JJDW)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_JJRQSJ on JCPT_JCJ_JJXX (JJRQSJ)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_XGSJ on JCPT_JCJ_JJXX (XGSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JCJ_JJXX_ZXGXSJ on JCPT_JCJ_JJXX (ZXGXSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on JCPT_JCJ_JJXX to MYFP;
+grant select on JCPT_JCJ_JJXX to ZHZX;

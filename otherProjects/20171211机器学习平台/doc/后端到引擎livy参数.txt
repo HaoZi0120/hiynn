@@ -1,0 +1,11 @@
+--configStr: String,//executeSchema
+--sessionId: String,
+--cacheMode: String = "local", //默认的缓存模式
+--cacheDir: String = "cache", //默认的缓存文件夹为根目录下cache
+--redisHost: String = "localhost", //默认缓存的Redis服务器地址
+--redisPort: Int = 6379, //默认缓存的Redis服务器端口
+--appMode: String = "debug", // 默认处于前端设计器调试模式
+--numSampleCache: Int = 100, // 默认缓存100条样本信息
+--reConfig: Boolean = false //是否重新运行算子配置
+
+"--configStr jsonStr","--sessionId uuidStr","--cacheMode redis"

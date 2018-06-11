@@ -1,0 +1,279 @@
+-- Create table
+create table JCPT_RY_JBXX
+(
+  RYBH    VARCHAR2(20) not null,
+  GMSFHM  VARCHAR2(18),
+  XM      VARCHAR2(30),
+  XMPY    VARCHAR2(30),
+  CYM     VARCHAR2(30),
+  CYMPY   VARCHAR2(30),
+  YWX     VARCHAR2(40),
+  YWM     VARCHAR2(40),
+  ZJZL    CHAR(3),
+  ZJHM    VARCHAR2(20),
+  BMCH    VARCHAR2(30),
+  BMCHPY  VARCHAR2(30),
+  XB      CHAR(1),
+  MZ      CHAR(2),
+  CSRQ    CHAR(8),
+  CSSJ    VARCHAR2(6),
+  CSZMBH  VARCHAR2(20),
+  CSDQ    CHAR(3),
+  CSQX    CHAR(6),
+  CSXZ    VARCHAR2(40),
+  JGDQ    CHAR(3),
+  JGQX    CHAR(6),
+  JGXZ    VARCHAR2(40),
+  ZJXY    CHAR(2),
+  ZZMM    CHAR(2),
+  WHCD    CHAR(2),
+  HYZK    VARCHAR2(2),
+  BYZK    CHAR(1),
+  SG      VARCHAR2(3),
+  XX      VARCHAR2(1),
+  SF      VARCHAR2(15),
+  ZC      VARCHAR2(20),
+  ZW      VARCHAR2(100),
+  ZY      VARCHAR2(40),
+  ZYLB    VARCHAR2(3),
+  FWCS    VARCHAR2(120),
+  LXDH    VARCHAR2(100),
+  ZWSP    VARCHAR2(20),
+  SWRQ    VARCHAR2(8),
+  SWZMBH  VARCHAR2(20),
+  GJDQ    CHAR(3),
+  HJQH    CHAR(6),
+  HJZRQ   VARCHAR2(12),
+  HJXZ    VARCHAR2(100),
+  XXJB    CHAR(1),
+  RYLB    CHAR(1),
+  RYSX    CHAR(60) default '000000000000000000000000000000000000000000000000000000000000',
+  RYZZBH  VARCHAR2(20),
+  ZWBH    VARCHAR2(23),
+  DNABH   VARCHAR2(20),
+  DJR     VARCHAR2(6),
+  DJSJ    VARCHAR2(14),
+  DJDW    VARCHAR2(12),
+  XZZZRQ  VARCHAR2(12),
+  XZZQH   VARCHAR2(6),
+  XZZXZ   VARCHAR2(100),
+  DJDWMC  VARCHAR2(100),
+  DJRXM   VARCHAR2(30),
+  XGSJ    VARCHAR2(14) default to_char(sysdate,'yyyymmddhh24miss'),
+  XGR     VARCHAR2(6),
+  XGDW    VARCHAR2(12),
+  XGRXM   VARCHAR2(30),
+  XGDWMC  VARCHAR2(100),
+  HJQHMC  VARCHAR2(100),
+  XZZQHMC VARCHAR2(100),
+  SJLY    VARCHAR2(2),
+  JHDJSJ  VARCHAR2(14),
+  RYTBBS  VARCHAR2(1),
+  RYCJFS  VARCHAR2(1),
+  TZ      NUMBER,
+  SCRKSJ  DATE,
+  ZXGXSJ  DATE,
+  JLMJ    CHAR(1) default '5'
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table JCPT_RY_JBXX
+  is '人员基本信息';
+-- Add comments to the columns 
+comment on column JCPT_RY_JBXX.RYBH
+  is '人员编号';
+comment on column JCPT_RY_JBXX.GMSFHM
+  is '公民身份号码';
+comment on column JCPT_RY_JBXX.XM
+  is '姓名－姓名拼音';
+comment on column JCPT_RY_JBXX.XMPY
+  is '姓名拼音';
+comment on column JCPT_RY_JBXX.CYM
+  is '曾用名－曾用名拼音';
+comment on column JCPT_RY_JBXX.CYMPY
+  is '曾用名拼音';
+comment on column JCPT_RY_JBXX.YWX
+  is '英文姓';
+comment on column JCPT_RY_JBXX.YWM
+  is '英文名';
+comment on column JCPT_RY_JBXX.ZJZL
+  is '证件种类－证件种类';
+comment on column JCPT_RY_JBXX.ZJHM
+  is '证件号码';
+comment on column JCPT_RY_JBXX.BMCH
+  is '别名绰号－别名绰号拼音';
+comment on column JCPT_RY_JBXX.BMCHPY
+  is '别名绰号拼音';
+comment on column JCPT_RY_JBXX.XB
+  is '性别－性别';
+comment on column JCPT_RY_JBXX.MZ
+  is '民族－民族';
+comment on column JCPT_RY_JBXX.CSRQ
+  is '出生日期';
+comment on column JCPT_RY_JBXX.CSSJ
+  is '出生时间';
+comment on column JCPT_RY_JBXX.CSZMBH
+  is '出生证明编号';
+comment on column JCPT_RY_JBXX.CSDQ
+  is '出生地区－国籍';
+comment on column JCPT_RY_JBXX.CSQX
+  is '出生区县－行政区划';
+comment on column JCPT_RY_JBXX.CSXZ
+  is '出生详址';
+comment on column JCPT_RY_JBXX.JGDQ
+  is '籍贯地区－国籍';
+comment on column JCPT_RY_JBXX.JGQX
+  is '籍贯区县－行政区划';
+comment on column JCPT_RY_JBXX.JGXZ
+  is '籍贯详址';
+comment on column JCPT_RY_JBXX.ZJXY
+  is '宗教信仰－宗教信仰';
+comment on column JCPT_RY_JBXX.ZZMM
+  is '政治面貌－政治面貌';
+comment on column JCPT_RY_JBXX.WHCD
+  is '文化程度－文化程度';
+comment on column JCPT_RY_JBXX.HYZK
+  is '婚姻状况－婚姻状况';
+comment on column JCPT_RY_JBXX.BYZK
+  is '兵役状况－兵役状况';
+comment on column JCPT_RY_JBXX.SG
+  is '身高';
+comment on column JCPT_RY_JBXX.XX
+  is '血型－血型';
+comment on column JCPT_RY_JBXX.SF
+  is '身份－身份';
+comment on column JCPT_RY_JBXX.ZC
+  is '专长－专长';
+comment on column JCPT_RY_JBXX.ZW
+  is '职务';
+comment on column JCPT_RY_JBXX.ZY
+  is '职业';
+comment on column JCPT_RY_JBXX.ZYLB
+  is '职业类别－职业类别';
+comment on column JCPT_RY_JBXX.FWCS
+  is '服务处所';
+comment on column JCPT_RY_JBXX.LXDH
+  is '联系电话';
+comment on column JCPT_RY_JBXX.ZWSP
+  is '中文水平';
+comment on column JCPT_RY_JBXX.SWRQ
+  is '死亡日期';
+comment on column JCPT_RY_JBXX.SWZMBH
+  is '死亡证明编号';
+comment on column JCPT_RY_JBXX.GJDQ
+  is '国家地区－国籍';
+comment on column JCPT_RY_JBXX.HJQH
+  is '户籍区划－行政区划';
+comment on column JCPT_RY_JBXX.HJZRQ
+  is '户籍责任区－社区责任区';
+comment on column JCPT_RY_JBXX.HJXZ
+  is '户籍详址';
+comment on column JCPT_RY_JBXX.XXJB
+  is '信息级别－信息级别';
+comment on column JCPT_RY_JBXX.RYLB
+  is '人员类别－人员类别';
+comment on column JCPT_RY_JBXX.RYSX
+  is '人员属性－人员属性';
+comment on column JCPT_RY_JBXX.RYZZBH
+  is '人员住址编号－住址编号';
+comment on column JCPT_RY_JBXX.ZWBH
+  is '指纹编号';
+comment on column JCPT_RY_JBXX.DNABH
+  is 'DNA编号';
+comment on column JCPT_RY_JBXX.DJR
+  is '登记人';
+comment on column JCPT_RY_JBXX.DJSJ
+  is '登记时间';
+comment on column JCPT_RY_JBXX.DJDW
+  is '登记单位－单位编码';
+comment on column JCPT_RY_JBXX.XZZZRQ
+  is '现住址责任区';
+comment on column JCPT_RY_JBXX.XZZQH
+  is '现住址区划';
+comment on column JCPT_RY_JBXX.XZZXZ
+  is '现住址详址';
+comment on column JCPT_RY_JBXX.DJDWMC
+  is '登记单位名称';
+comment on column JCPT_RY_JBXX.DJRXM
+  is '登记人姓名';
+comment on column JCPT_RY_JBXX.XGSJ
+  is '修改日期';
+comment on column JCPT_RY_JBXX.XGR
+  is '修改人';
+comment on column JCPT_RY_JBXX.XGDW
+  is '修改单位';
+comment on column JCPT_RY_JBXX.XGRXM
+  is '修改人姓名';
+comment on column JCPT_RY_JBXX.XGDWMC
+  is '修改单位名称';
+comment on column JCPT_RY_JBXX.SJLY
+  is '数据来源';
+comment on column JCPT_RY_JBXX.TZ
+  is '体重';
+comment on column JCPT_RY_JBXX.SCRKSJ
+  is '首次入库时间';
+comment on column JCPT_RY_JBXX.ZXGXSJ
+  is '最新更新时间';
+comment on column JCPT_RY_JBXX.JLMJ
+  is '记录密级';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table JCPT_RY_JBXX
+  add primary key (RYBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index JCPT_RY_JBXX_GMSFHM on JCPT_RY_JBXX (GMSFHM)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_JBXX_XM on JCPT_RY_JBXX (XM)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_RY_JBXX_ZXGXSJ on JCPT_RY_JBXX (ZXGXSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on JCPT_RY_JBXX to HJFJ;
+grant select on JCPT_RY_JBXX to SJZXCX;
+grant select on JCPT_RY_JBXX to ZHZX;

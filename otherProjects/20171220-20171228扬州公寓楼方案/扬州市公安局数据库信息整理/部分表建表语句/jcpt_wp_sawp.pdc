@@ -1,0 +1,537 @@
+-- Create table
+create table JCPT_WP_SAWP
+(
+  WPBH     VARCHAR2(23) not null,
+  RYBH     VARCHAR2(20),
+  AJBH     VARCHAR2(20),
+  WPLX     CHAR(5),
+  WPMC     VARCHAR2(50),
+  WPCD     CHAR(6),
+  WPCP     VARCHAR2(100),
+  WPXH     VARCHAR2(20),
+  WPGG     VARCHAR2(20),
+  WPSY     VARCHAR2(20),
+  WPZD     VARCHAR2(20),
+  WPCS     VARCHAR2(20),
+  WPYS     CHAR(2),
+  WPJZ     NUMBER(8),
+  GMRQ     VARCHAR2(8),
+  YYR      VARCHAR2(100),
+  WPSL     NUMBER(8),
+  SLDW     CHAR(2),
+  WPZLCD   NUMBER(8),
+  ZLCDDW   CHAR(10),
+  BHY      VARCHAR2(40),
+  BHE      VARCHAR2(40),
+  BHS      VARCHAR2(40),
+  BHHS     VARCHAR2(40),
+  BHW      VARCHAR2(40),
+  SSJZ     NUMBER(8),
+  WHSSJZ   NUMBER(8),
+  WPXZ     CHAR(2),
+  WPZT     CHAR(2),
+  ZJDW     CHAR(12),
+  ZJDWMC   VARCHAR2(100),
+  ZJSJ     VARCHAR2(8),
+  JYSM     VARCHAR2(1000),
+  CLDW     CHAR(12),
+  CLDWMC   VARCHAR2(100),
+  CLRQ     CHAR(8),
+  HPZL     VARCHAR2(2),
+  CLLX     VARCHAR2(3),
+  CSYS     VARCHAR2(5),
+  CZXM     VARCHAR2(30),
+  CZSFZH   VARCHAR2(18),
+  CZDZ     VARCHAR2(100),
+  CZLXDH   VARCHAR2(20),
+  BXQK     VARCHAR2(100),
+  BDQX     CHAR(1),
+  CCDJSJ   VARCHAR2(8),
+  QZKJ     NUMBER(4),
+  QZFZRQ   CHAR(8),
+  CQRDW    VARCHAR2(100),
+  QZZDSM   NUMBER(4),
+  YJZQMZ   NUMBER(8),
+  YJZQFXDW VARCHAR2(100),
+  YJZQFXRQ CHAR(8),
+  QX       CHAR(8),
+  ZDMD     CHAR(6),
+  LYD      VARCHAR2(100),
+  XSFX     VARCHAR2(100),
+  WZPM     VARCHAR2(50),
+  SAWPLY   VARCHAR2(2),
+  WSMC     VARCHAR2(50),
+  WPLYPDBH VARCHAR2(20),
+  WPZJLY   VARCHAR2(30),
+  WPCLPZBH VARCHAR2(100),
+  ZJPZ     CHAR(7),
+  DJDW     VARCHAR2(12),
+  DJR      VARCHAR2(6),
+  DJSJ     VARCHAR2(14),
+  DJRXM    VARCHAR2(30),
+  DJDWMC   VARCHAR2(100),
+  XGDW     VARCHAR2(12),
+  XGDWMC   VARCHAR2(100),
+  XGR      VARCHAR2(6),
+  XGRXM    VARCHAR2(30),
+  XGSJ     VARCHAR2(14),
+  GLBH     VARCHAR2(20),
+  JHZL     NUMBER(8,4),
+  CCZL     NUMBER(8,4),
+  CZZL     NUMBER(8,4),
+  GJJG     NUMBER(8,4),
+  MCJG     NUMBER(8,4),
+  WPSX     VARCHAR2(6),
+  WPLY     VARCHAR2(200),
+  CJH      VARCHAR2(25),
+  SJBH     VARCHAR2(10),
+  KYR      VARCHAR2(6),
+  KYSJ     VARCHAR2(14),
+  KYDW     VARCHAR2(12),
+  BKYR     VARCHAR2(30),
+  KYCWBGR  VARCHAR2(6),
+  SPJG     VARCHAR2(2),
+  SPR      VARCHAR2(6),
+  SPSJ     VARCHAR2(14),
+  SPYJ     VARCHAR2(400),
+  TXMDY    VARCHAR2(1),
+  RKLX     VARCHAR2(1),
+  RKSJ     VARCHAR2(14),
+  SFGG     VARCHAR2(1),
+  GGLX     VARCHAR2(1),
+  GGDJR    VARCHAR2(6),
+  GGDJSJ   VARCHAR2(14),
+  GGDJDW   VARCHAR2(12),
+  CKLX     VARCHAR2(5),
+  CKSJ     VARCHAR2(14),
+  BZJBS    VARCHAR2(1),
+  SHJG     VARCHAR2(2),
+  SHR      VARCHAR2(6),
+  SHSJ     VARCHAR2(14),
+  SHYJ     VARCHAR2(400),
+  PJLX     VARCHAR2(4),
+  PJHM     VARCHAR2(9),
+  DTBZ     VARCHAR2(1),
+  DTDWDM   VARCHAR2(20),
+  JKSBH    VARCHAR2(9),
+  WDID     VARCHAR2(12),
+  SKRQ     VARCHAR2(8),
+  FKR      VARCHAR2(20),
+  FKKHH    VARCHAR2(20),
+  FKZH     VARCHAR2(19),
+  ZHDM     VARCHAR2(20),
+  SKR      VARCHAR2(20),
+  SKKHH    VARCHAR2(20),
+  SKZH     VARCHAR2(19),
+  CZY      VARCHAR2(10),
+  CZYM     VARCHAR2(20),
+  SM       VARCHAR2(40),
+  ZPH      VARCHAR2(10),
+  XYM      VARCHAR2(10),
+  HJJE     VARCHAR2(10),
+  ZFBZ     VARCHAR2(1),
+  MXID     VARCHAR2(1),
+  XMDM     VARCHAR2(4),
+  XMMC     VARCHAR2(30),
+  JLDW     VARCHAR2(4),
+  SFBZ     VARCHAR2(10),
+  JE       VARCHAR2(10),
+  ZTBS     VARCHAR2(1),
+  DJH      VARCHAR2(30),
+  ZJLB     CHAR(2),
+  CLQK     CHAR(1),
+  GSDMC    VARCHAR2(100),
+  WPSZD    VARCHAR2(200),
+  CYRZJHM  VARCHAR2(20),
+  CYRBH    VARCHAR2(30),
+  CYRLB    VARCHAR2(1),
+  SCRKSJ   DATE,
+  ZXGXSJ   DATE,
+  JLMJ     CHAR(1) default '5'
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table JCPT_WP_SAWP
+  is '物品－涉案物品';
+-- Add comments to the columns 
+comment on column JCPT_WP_SAWP.WPBH
+  is '物品编号';
+comment on column JCPT_WP_SAWP.RYBH
+  is '物品人员编号';
+comment on column JCPT_WP_SAWP.AJBH
+  is '物品案件编号';
+comment on column JCPT_WP_SAWP.WPLX
+  is '物品类型';
+comment on column JCPT_WP_SAWP.WPMC
+  is '物品名称';
+comment on column JCPT_WP_SAWP.WPCD
+  is '物品产地';
+comment on column JCPT_WP_SAWP.WPCP
+  is '物品厂牌';
+comment on column JCPT_WP_SAWP.WPXH
+  is '物品型号';
+comment on column JCPT_WP_SAWP.WPGG
+  is '物品规格';
+comment on column JCPT_WP_SAWP.WPSY
+  is '物品式样';
+comment on column JCPT_WP_SAWP.WPZD
+  is '物品质地';
+comment on column JCPT_WP_SAWP.WPCS
+  is '物品成色';
+comment on column JCPT_WP_SAWP.WPYS
+  is '物品颜色';
+comment on column JCPT_WP_SAWP.WPJZ
+  is '物品价值';
+comment on column JCPT_WP_SAWP.GMRQ
+  is '购买日期';
+comment on column JCPT_WP_SAWP.YYR
+  is '持有人';
+comment on column JCPT_WP_SAWP.WPSL
+  is '物品数量';
+comment on column JCPT_WP_SAWP.SLDW
+  is '物品数量单位';
+comment on column JCPT_WP_SAWP.WPZLCD
+  is '物品重量/长度';
+comment on column JCPT_WP_SAWP.ZLCDDW
+  is '物品重量/长度单位';
+comment on column JCPT_WP_SAWP.BHY
+  is '编号一';
+comment on column JCPT_WP_SAWP.BHE
+  is '编号二';
+comment on column JCPT_WP_SAWP.BHS
+  is '编号三';
+comment on column JCPT_WP_SAWP.BHHS
+  is '编号四';
+comment on column JCPT_WP_SAWP.BHW
+  is '编号五';
+comment on column JCPT_WP_SAWP.SSJZ
+  is '损失价值';
+comment on column JCPT_WP_SAWP.WHSSJZ
+  is '挽回损失价值';
+comment on column JCPT_WP_SAWP.WPXZ
+  is '物品性质';
+comment on column JCPT_WP_SAWP.WPZT
+  is '处理状态－物品状态';
+comment on column JCPT_WP_SAWP.ZJDW
+  is '追缴单位';
+comment on column JCPT_WP_SAWP.ZJDWMC
+  is '追缴单位名称';
+comment on column JCPT_WP_SAWP.ZJSJ
+  is '追缴时间';
+comment on column JCPT_WP_SAWP.JYSM
+  is '简要说明';
+comment on column JCPT_WP_SAWP.CLDW
+  is '处理单位';
+comment on column JCPT_WP_SAWP.CLDWMC
+  is '处理单位名称';
+comment on column JCPT_WP_SAWP.CLRQ
+  is '处理日期';
+comment on column JCPT_WP_SAWP.HPZL
+  is '涉案车辆－号牌种类';
+comment on column JCPT_WP_SAWP.CLLX
+  is '涉案车辆－车辆类型';
+comment on column JCPT_WP_SAWP.CSYS
+  is '涉案车辆－车身颜色';
+comment on column JCPT_WP_SAWP.CZXM
+  is '涉案车辆－车主姓名';
+comment on column JCPT_WP_SAWP.CZSFZH
+  is '涉案车辆－车主身份证号';
+comment on column JCPT_WP_SAWP.CZDZ
+  is '涉案车辆－车主地址';
+comment on column JCPT_WP_SAWP.CZLXDH
+  is '涉案车辆－车主联系电话';
+comment on column JCPT_WP_SAWP.BXQK
+  is '涉案车辆－保险情况';
+comment on column JCPT_WP_SAWP.BDQX
+  is '涉案车辆－被盗抢保险';
+comment on column JCPT_WP_SAWP.CCDJSJ
+  is '涉案车辆－初次登记时间';
+comment on column JCPT_WP_SAWP.QZKJ
+  is '涉案枪支－口径';
+comment on column JCPT_WP_SAWP.QZFZRQ
+  is '涉案枪支－发证日期';
+comment on column JCPT_WP_SAWP.CQRDW
+  is '涉案枪支－持枪人单位';
+comment on column JCPT_WP_SAWP.QZZDSM
+  is '涉案枪支－枪支子弹数目';
+comment on column JCPT_WP_SAWP.YJZQMZ
+  is '证券面值';
+comment on column JCPT_WP_SAWP.YJZQFXDW
+  is '发行单位';
+comment on column JCPT_WP_SAWP.YJZQFXRQ
+  is '发行日期';
+comment on column JCPT_WP_SAWP.QX
+  is '发行期限';
+comment on column JCPT_WP_SAWP.ZDMD
+  is '涉案毒品－种毒目的';
+comment on column JCPT_WP_SAWP.LYD
+  is '涉案毒品－来源地';
+comment on column JCPT_WP_SAWP.XSFX
+  is '涉案毒品－销售方向';
+comment on column JCPT_WP_SAWP.WZPM
+  is '涉案毒品－伪装品名';
+comment on column JCPT_WP_SAWP.SAWPLY
+  is '涉案物品来源－物品来源';
+comment on column JCPT_WP_SAWP.WSMC
+  is '经案文书名称';
+comment on column JCPT_WP_SAWP.WPLYPDBH
+  is '经案物品－来源凭单编号';
+comment on column JCPT_WP_SAWP.WPZJLY
+  is '物品证据来源';
+comment on column JCPT_WP_SAWP.WPCLPZBH
+  is '经案物品－处理凭证编号';
+comment on column JCPT_WP_SAWP.ZJPZ
+  is '经案物品－证据品质';
+comment on column JCPT_WP_SAWP.DJDW
+  is '登记单位';
+comment on column JCPT_WP_SAWP.DJR
+  is '登记人';
+comment on column JCPT_WP_SAWP.DJSJ
+  is '登记时间';
+comment on column JCPT_WP_SAWP.DJRXM
+  is '登记人姓名';
+comment on column JCPT_WP_SAWP.DJDWMC
+  is '登记单位名称';
+comment on column JCPT_WP_SAWP.XGDW
+  is '修改单位';
+comment on column JCPT_WP_SAWP.XGDWMC
+  is '修改单位名称';
+comment on column JCPT_WP_SAWP.XGR
+  is '修改人';
+comment on column JCPT_WP_SAWP.XGRXM
+  is '修改人姓名';
+comment on column JCPT_WP_SAWP.XGSJ
+  is '修改时间';
+comment on column JCPT_WP_SAWP.GLBH
+  is '关联物品编号－WP_JDC车辆编号';
+comment on column JCPT_WP_SAWP.JHZL
+  is '涉案毒品－缴获重量';
+comment on column JCPT_WP_SAWP.CCZL
+  is '涉案毒品－初查重量';
+comment on column JCPT_WP_SAWP.CZZL
+  is '涉案毒品－查证重量';
+comment on column JCPT_WP_SAWP.GJJG
+  is '涉案毒品－购进价格';
+comment on column JCPT_WP_SAWP.MCJG
+  is '涉案毒品－卖出价格';
+comment on column JCPT_WP_SAWP.WPSX
+  is '经侦物品属性';
+comment on column JCPT_WP_SAWP.CJH
+  is '车架号';
+comment on column JCPT_WP_SAWP.SJBH
+  is '收据编号';
+comment on column JCPT_WP_SAWP.KYR
+  is '扣押人';
+comment on column JCPT_WP_SAWP.KYSJ
+  is '扣押时间';
+comment on column JCPT_WP_SAWP.KYDW
+  is '扣押单位';
+comment on column JCPT_WP_SAWP.BKYR
+  is '被扣押人';
+comment on column JCPT_WP_SAWP.KYCWBGR
+  is '扣押财物保管人';
+comment on column JCPT_WP_SAWP.SPJG
+  is '审批结果';
+comment on column JCPT_WP_SAWP.SPR
+  is '审批人';
+comment on column JCPT_WP_SAWP.SPSJ
+  is '审批时间';
+comment on column JCPT_WP_SAWP.SPYJ
+  is '审批意见';
+comment on column JCPT_WP_SAWP.TXMDY
+  is '条形码打印标识';
+comment on column JCPT_WP_SAWP.RKLX
+  is '物品入库类型';
+comment on column JCPT_WP_SAWP.RKSJ
+  is '物品入库时间';
+comment on column JCPT_WP_SAWP.SFGG
+  is '是否公告';
+comment on column JCPT_WP_SAWP.GGLX
+  is '公告类型';
+comment on column JCPT_WP_SAWP.GGDJR
+  is '公告登记人';
+comment on column JCPT_WP_SAWP.GGDJSJ
+  is '公告登记时间';
+comment on column JCPT_WP_SAWP.GGDJDW
+  is '公告登记单位';
+comment on column JCPT_WP_SAWP.CKLX
+  is '物品出库类型';
+comment on column JCPT_WP_SAWP.CKSJ
+  is '物品出库时间';
+comment on column JCPT_WP_SAWP.BZJBS
+  is '保证金上交标识';
+comment on column JCPT_WP_SAWP.SHJG
+  is '审批结果';
+comment on column JCPT_WP_SAWP.SHR
+  is '审核人';
+comment on column JCPT_WP_SAWP.SHSJ
+  is '审核时间';
+comment on column JCPT_WP_SAWP.SHYJ
+  is '审核意见';
+comment on column JCPT_WP_SAWP.PJLX
+  is '票据类型';
+comment on column JCPT_WP_SAWP.PJHM
+  is '票据号码';
+comment on column JCPT_WP_SAWP.DTBZ
+  is '大厅模式';
+comment on column JCPT_WP_SAWP.DTDWDM
+  is '大厅单位代码';
+comment on column JCPT_WP_SAWP.JKSBH
+  is '缴款书编号';
+comment on column JCPT_WP_SAWP.WDID
+  is '单位网点代码';
+comment on column JCPT_WP_SAWP.SKRQ
+  is '收款日期';
+comment on column JCPT_WP_SAWP.FKR
+  is '付款人';
+comment on column JCPT_WP_SAWP.FKKHH
+  is '付款人开户行';
+comment on column JCPT_WP_SAWP.FKZH
+  is '付款人账号';
+comment on column JCPT_WP_SAWP.ZHDM
+  is '代理银行网点代码';
+comment on column JCPT_WP_SAWP.SKR
+  is '收款人';
+comment on column JCPT_WP_SAWP.SKKHH
+  is '收款人开户行';
+comment on column JCPT_WP_SAWP.SKZH
+  is '收款人账号';
+comment on column JCPT_WP_SAWP.CZY
+  is '开票人ID';
+comment on column JCPT_WP_SAWP.CZYM
+  is '开票人姓名';
+comment on column JCPT_WP_SAWP.SM
+  is '说明';
+comment on column JCPT_WP_SAWP.ZPH
+  is '缴款方式';
+comment on column JCPT_WP_SAWP.XYM
+  is '全票面校验码';
+comment on column JCPT_WP_SAWP.HJJE
+  is '合计金额';
+comment on column JCPT_WP_SAWP.ZFBZ
+  is '作废标识';
+comment on column JCPT_WP_SAWP.MXID
+  is '明细序号';
+comment on column JCPT_WP_SAWP.XMDM
+  is '收费项目执行码';
+comment on column JCPT_WP_SAWP.XMMC
+  is '收费项目名称';
+comment on column JCPT_WP_SAWP.JLDW
+  is '计量单位';
+comment on column JCPT_WP_SAWP.SFBZ
+  is '收费标准';
+comment on column JCPT_WP_SAWP.JE
+  is '金额';
+comment on column JCPT_WP_SAWP.ZTBS
+  is '物品状态标识';
+comment on column JCPT_WP_SAWP.DJH
+  is '涉案车辆电机号';
+comment on column JCPT_WP_SAWP.SCRKSJ
+  is '首次入库时间';
+comment on column JCPT_WP_SAWP.ZXGXSJ
+  is '最新更新时间';
+comment on column JCPT_WP_SAWP.JLMJ
+  is '记录密级';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table JCPT_WP_SAWP
+  add primary key (WPBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index JCPT_WP_SAWP_AJBH on JCPT_WP_SAWP (AJBH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_WP_SAWP_DJDW on JCPT_WP_SAWP (DJDW)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_WP_SAWP_DJSJ on JCPT_WP_SAWP (DJSJ)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_WP_SAWP_RYBH on JCPT_WP_SAWP (RYBH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_WP_SAWP_WPLX on JCPT_WP_SAWP (WPLX)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_WP_SAWP_XGSJ on JCPT_WP_SAWP (XGSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_WP_SAWP_ZXGXSJ on JCPT_WP_SAWP (ZXGXSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on JCPT_WP_SAWP to ZHZX;

@@ -1,0 +1,76 @@
+{
+  "apps": [
+    {
+      "name": "ML-Platform 01",
+      "uuid": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "parents": [],
+      "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+      "context": [
+        {
+          "name": "SparkContext",
+          "params": {
+            "spark.master": "local[4]",
+            "spark.app.name": "factory root"
+          }
+        },
+        {
+          "name": "SparkSession",
+          "params": {
+          }
+        }
+      ],
+      "operators": [
+        {
+          "name": "DataProcess.ETL.ConnectDB",
+          "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": [],
+          "params": {
+            "dialect": "hive2",
+            "hostname": "192.168.1.102",
+            "port": 10000,
+            "username": "jichenyu",
+            "password": "jichenyu123",
+            "database": "default",
+            "table": "titanic_tmp1"
+          },
+          "ports": {
+          }
+        },
+        {
+          "name": "MachineLearning.Clustering.KMeans",
+          "uuid": "b74a0e16-0aea-11e8-ba89-0ed5f89f718b",
+          "belong": "738794da-d9dd-4fe9-8508-7b113c443998",
+          "parents": ["17bbcbe2-655f-4834-88e6-e5ee71734269"],
+          "params": {
+            "categories": [
+              "sex",
+              "pclass",
+              "sibsp",
+              "parch",
+              "embarked"
+            ],
+            "continuous": [
+              "age",
+              "fare"
+            ],
+            "initMode":"k-means||",
+            "initSteps":2,
+            "k":4,
+            "maxIter":20,
+            "seed":-1689246527,
+            "tol":1.0E-4
+          },
+          "ports": {
+            "in": {
+              "uuid": "17bbcbe2-655f-4834-88e6-e5ee71734269",
+              "port": "out"
+            }
+          }
+        }
+      ],
+      "ports": {
+      }
+    }
+  ]
+}

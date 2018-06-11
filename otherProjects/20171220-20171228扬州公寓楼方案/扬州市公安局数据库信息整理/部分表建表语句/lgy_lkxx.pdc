@@ -1,0 +1,92 @@
+-- Create table
+create table LGY_LKXX
+(
+  LKBM   VARCHAR2(22) not null,
+  XM     VARCHAR2(30),
+  XB     CHAR(1),
+  MZ     CHAR(2),
+  ZH     CHAR(18),
+  XZ     VARCHAR2(100),
+  RZSJ   CHAR(12),
+  RZFH   CHAR(10),
+  TFSJ   CHAR(12),
+  DWBH   CHAR(10),
+  PCSDM  CHAR(10),
+  FJDM   VARCHAR2(10),
+  SCRKSJ DATE,
+  ZXGXSJ DATE,
+  JLMJ   CHAR(1),
+  LGMC   VARCHAR2(1000),
+  ZCDZ   VARCHAR2(2000)
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table LGY_LKXX
+  add constraint LGY_LKXX primary key (LKBM)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index LGY_LKXX_DWBH_1 on LGY_LKXX (DWBH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index LGY_LKXX_RZSJ_1 on LGY_LKXX (RZSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index LGY_LKXX_TFSJ_1 on LGY_LKXX (TFSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index LGY_LKXX_ZH_1 on LGY_LKXX (ZH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on LGY_LKXX to ZHZX;

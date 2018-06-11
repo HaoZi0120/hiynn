@@ -1,0 +1,341 @@
+-- Create table
+create table JCPT_JG_CYRY
+(
+  JGBH      VARCHAR2(20),
+  RYBH      VARCHAR2(20),
+  BMMC      VARCHAR2(20),
+  ZW        CHAR(2),
+  GRJL      VARCHAR2(200),
+  PXZH      VARCHAR2(20),
+  PXZS      VARCHAR2(50),
+  QKLJ      VARCHAR2(50),
+  ZSQK      VARCHAR2(50),
+  CYRYZX    CHAR(10),
+  PCSYJ     VARCHAR2(50),
+  SFWZDRT   CHAR(1),
+  ZDRTLB    CHAR(1),
+  KZCS      VARCHAR2(30),
+  ZYWT      VARCHAR2(30),
+  SFWZDFWDX CHAR(1),
+  ZDFWDXLB  CHAR(1),
+  BWCS      VARCHAR2(30),
+  ZYGX      VARCHAR2(30),
+  RAS       VARCHAR2(1),
+  XZZ       VARCHAR2(120),
+  ZZBH      VARCHAR2(20),
+  ZYM       VARCHAR2(30),
+  YM        VARCHAR2(30),
+  HM        VARCHAR2(30),
+  ZZDH      VARCHAR2(20),
+  SJ        VARCHAR2(15),
+  QTLXDH    VARCHAR2(20),
+  ZXBS      VARCHAR2(1),
+  ZXSJ      VARCHAR2(8),
+  ZXYY      VARCHAR2(200),
+  DJR       CHAR(6),
+  DJSJ      VARCHAR2(14),
+  DJDW      CHAR(12),
+  CYRYBZ    VARCHAR2(500),
+  CYRYBH    VARCHAR2(20) not null,
+  GGCSRYKH  VARCHAR2(19),
+  YLCSCYLB  VARCHAR2(1),
+  PYSJ      VARCHAR2(8),
+  LZSJ      VARCHAR2(8),
+  JSSP      VARCHAR2(8),
+  SYQT      CHAR(1),
+  GJLY      CHAR(1),
+  FWZH      VARCHAR2(20),
+  PXSJ      VARCHAR2(8),
+  XGR       CHAR(6),
+  XGDW      CHAR(12),
+  XGSJ      VARCHAR2(14) default TO_CHAR(SYSDATE,'YYYYMMDDHH24MISS') not null,
+  XGDWMC    VARCHAR2(100),
+  XGRXM     VARCHAR2(30),
+  DJDWMC    VARCHAR2(100),
+  DJRXM     VARCHAR2(30),
+  CYRYBHOLD VARCHAR2(20),
+  SCGF      VARCHAR2(5),
+  GMSFHM    VARCHAR2(18),
+  XM        VARCHAR2(50),
+  WWX       VARCHAR2(40),
+  WWM       VARCHAR2(40),
+  CYZJDM    CHAR(3),
+  ZJHM      VARCHAR2(30),
+  XBDM      CHAR(1),
+  MZDM      CHAR(2),
+  CSRQ      CHAR(8),
+  SCRKSJ    DATE,
+  ZXGXSJ    DATE,
+  JLMJ      CHAR(1) default '5'
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table JCPT_JG_CYRY
+  is '机构从业人员';
+-- Add comments to the columns 
+comment on column JCPT_JG_CYRY.JGBH
+  is '机构编号－机构编号';
+comment on column JCPT_JG_CYRY.RYBH
+  is '人员编号－人员编号';
+comment on column JCPT_JG_CYRY.BMMC
+  is '部门名称';
+comment on column JCPT_JG_CYRY.ZW
+  is '职务类别－职务';
+comment on column JCPT_JG_CYRY.GRJL
+  is '个人简历';
+comment on column JCPT_JG_CYRY.PXZH
+  is '培训证号';
+comment on column JCPT_JG_CYRY.PXZS
+  is '培训证书';
+comment on column JCPT_JG_CYRY.QKLJ
+  is '前科劣迹';
+comment on column JCPT_JG_CYRY.ZSQK
+  is '政审情况';
+comment on column JCPT_JG_CYRY.CYRYZX
+  is '机构人员属性－机构人员属性';
+comment on column JCPT_JG_CYRY.PCSYJ
+  is '派出所意见';
+comment on column JCPT_JG_CYRY.SFWZDRT
+  is '是否重点人头';
+comment on column JCPT_JG_CYRY.ZDRTLB
+  is '重点人头类别－重点人头类别';
+comment on column JCPT_JG_CYRY.KZCS
+  is '控制措施';
+comment on column JCPT_JG_CYRY.ZYWT
+  is '主要问题';
+comment on column JCPT_JG_CYRY.SFWZDFWDX
+  is '是否服务对象';
+comment on column JCPT_JG_CYRY.ZDFWDXLB
+  is '服务对象类别－重点服务对象类别';
+comment on column JCPT_JG_CYRY.BWCS
+  is '保卫措施';
+comment on column JCPT_JG_CYRY.ZYGX
+  is '主要贡献';
+comment on column JCPT_JG_CYRY.RAS
+  is 'RAS';
+comment on column JCPT_JG_CYRY.XZZ
+  is '现住址';
+comment on column JCPT_JG_CYRY.ZZBH
+  is '住址编号';
+comment on column JCPT_JG_CYRY.ZYM
+  is '曾用名';
+comment on column JCPT_JG_CYRY.YM
+  is '艺名';
+comment on column JCPT_JG_CYRY.HM
+  is '化名';
+comment on column JCPT_JG_CYRY.ZZDH
+  is '住宅电话';
+comment on column JCPT_JG_CYRY.SJ
+  is '手机';
+comment on column JCPT_JG_CYRY.QTLXDH
+  is '其他联系电话';
+comment on column JCPT_JG_CYRY.ZXBS
+  is '注销标识－注销标识';
+comment on column JCPT_JG_CYRY.ZXSJ
+  is '注销时间';
+comment on column JCPT_JG_CYRY.ZXYY
+  is '注销原因';
+comment on column JCPT_JG_CYRY.DJR
+  is '登记人';
+comment on column JCPT_JG_CYRY.DJSJ
+  is '登记时间';
+comment on column JCPT_JG_CYRY.DJDW
+  is '登记单位－单位编码';
+comment on column JCPT_JG_CYRY.CYRYBZ
+  is '备注';
+comment on column JCPT_JG_CYRY.CYRYBH
+  is '从业人员编号';
+comment on column JCPT_JG_CYRY.GGCSRYKH
+  is '公共场所从业人员管理卡号';
+comment on column JCPT_JG_CYRY.YLCSCYLB
+  is '从业类别－娱乐场所从业类别';
+comment on column JCPT_JG_CYRY.PYSJ
+  is '聘用时间';
+comment on column JCPT_JG_CYRY.LZSJ
+  is '离职时间';
+comment on column JCPT_JG_CYRY.JSSP
+  is '技术水平－从业人员技术水平';
+comment on column JCPT_JG_CYRY.SYQT
+  is '受业渠道－从业人员受业渠道';
+comment on column JCPT_JG_CYRY.GJLY
+  is '工具来源－从业人员工具来源';
+comment on column JCPT_JG_CYRY.FWZH
+  is '服务证号';
+comment on column JCPT_JG_CYRY.PXSJ
+  is '培训时间';
+comment on column JCPT_JG_CYRY.XGR
+  is '修改人';
+comment on column JCPT_JG_CYRY.XGDW
+  is '修改单位';
+comment on column JCPT_JG_CYRY.XGSJ
+  is '修改时间';
+comment on column JCPT_JG_CYRY.XGDWMC
+  is '修改单位名称';
+comment on column JCPT_JG_CYRY.XGRXM
+  is '修改人员姓名';
+comment on column JCPT_JG_CYRY.DJDWMC
+  is '登记单位名称';
+comment on column JCPT_JG_CYRY.DJRXM
+  is '登记人员姓名';
+comment on column JCPT_JG_CYRY.SCGF
+  is '所持股份';
+comment on column JCPT_JG_CYRY.GMSFHM
+  is '公民身份号码扩充';
+comment on column JCPT_JG_CYRY.XM
+  is '姓名扩充';
+comment on column JCPT_JG_CYRY.WWX
+  is '外文姓扩充';
+comment on column JCPT_JG_CYRY.WWM
+  is '外文名扩充';
+comment on column JCPT_JG_CYRY.CYZJDM
+  is '证件种类扩充';
+comment on column JCPT_JG_CYRY.ZJHM
+  is '证件号码扩充';
+comment on column JCPT_JG_CYRY.XBDM
+  is '性别扩充';
+comment on column JCPT_JG_CYRY.MZDM
+  is '民族扩充';
+comment on column JCPT_JG_CYRY.CSRQ
+  is '出生日期扩充';
+comment on column JCPT_JG_CYRY.SCRKSJ
+  is '首次入库时间';
+comment on column JCPT_JG_CYRY.ZXGXSJ
+  is '最新更新时间';
+comment on column JCPT_JG_CYRY.JLMJ
+  is '记录密级';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table JCPT_JG_CYRY
+  add primary key (CYRYBH)
+  using index 
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index JCPT_JG_CYRY_DJDW on JCPT_JG_CYRY (DJDW)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_DJSJ on JCPT_JG_CYRY (DJSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_PYSJ on JCPT_JG_CYRY (PYSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_QTLXDH on JCPT_JG_CYRY (QTLXDH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_RYBH on JCPT_JG_CYRY (RYBH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_SJ on JCPT_JG_CYRY (SJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_XZZ on JCPT_JG_CYRY (XZZ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_ZW on JCPT_JG_CYRY (ZW)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_ZXBS on JCPT_JG_CYRY (ZXBS)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index JCPT_JG_CYRY_ZXGXSJ on JCPT_JG_CYRY (ZXGXSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on JCPT_JG_CYRY to ZHZX;

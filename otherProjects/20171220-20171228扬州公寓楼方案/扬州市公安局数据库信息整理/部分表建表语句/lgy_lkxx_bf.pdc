@@ -1,0 +1,116 @@
+-- Create table
+create table LGY_LKXX_BF
+(
+  LKBM   VARCHAR2(22) not null,
+  XM     VARCHAR2(30),
+  XB     CHAR(1),
+  MZ     CHAR(2),
+  ZH     CHAR(18),
+  XZ     VARCHAR2(100),
+  RZSJ   CHAR(12),
+  RZFH   CHAR(10),
+  TFSJ   CHAR(12),
+  DWBH   CHAR(10),
+  PCSDM  CHAR(10),
+  FJDM   VARCHAR2(10),
+  SCRKSJ DATE,
+  ZXGXSJ DATE,
+  JLMJ   CHAR(1) default '5',
+  LGMC   VARCHAR2(1000),
+  ZCDZ   VARCHAR2(2000)
+)
+tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table LGY_LKXX_BF
+  is '旅馆住宿人员';
+-- Add comments to the columns 
+comment on column LGY_LKXX_BF.LKBM
+  is '旅客编码';
+comment on column LGY_LKXX_BF.XM
+  is '姓名';
+comment on column LGY_LKXX_BF.XB
+  is '性别';
+comment on column LGY_LKXX_BF.MZ
+  is '民族';
+comment on column LGY_LKXX_BF.ZH
+  is '身份证号';
+comment on column LGY_LKXX_BF.XZ
+  is '现住址';
+comment on column LGY_LKXX_BF.RZSJ
+  is '入住时间';
+comment on column LGY_LKXX_BF.RZFH
+  is '入住房号';
+comment on column LGY_LKXX_BF.TFSJ
+  is '退房时间';
+comment on column LGY_LKXX_BF.DWBH
+  is '单位编号';
+comment on column LGY_LKXX_BF.PCSDM
+  is '派出所代码';
+comment on column LGY_LKXX_BF.FJDM
+  is '分局代码';
+comment on column LGY_LKXX_BF.SCRKSJ
+  is '首次入库时间';
+comment on column LGY_LKXX_BF.ZXGXSJ
+  is '最新更新时间';
+comment on column LGY_LKXX_BF.JLMJ
+  is '记录密级';
+comment on column LGY_LKXX_BF.LGMC
+  is '旅馆名称';
+comment on column LGY_LKXX_BF.ZCDZ
+  is '旅馆注册地址';
+-- Create/Recreate indexes 
+create index LGY_LKXX_LKBM on LGY_LKXX_BF (LKBM)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index LGY_LKXX_RZSJ on LGY_LKXX_BF (RZSJ)
+  tablespace TS_SJZX_JCZY_IDX
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index LGY_LKXX_TFSJ on LGY_LKXX_BF (TFSJ)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index LGY_LKXX_ZH on LGY_LKXX_BF (ZH)
+  tablespace TS_SJZX_JCZY_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on LGY_LKXX_BF to ZHZX;

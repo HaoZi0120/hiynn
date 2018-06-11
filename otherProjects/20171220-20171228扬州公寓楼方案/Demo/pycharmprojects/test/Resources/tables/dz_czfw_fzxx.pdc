@@ -1,0 +1,154 @@
+-- Create table
+create table DZ_CZFW_FZXX
+(
+  JLBH    VARCHAR2(23) not null,
+  XGSJ    VARCHAR2(14),
+  XGRXM   VARCHAR2(30),
+  XGR     VARCHAR2(6),
+  XGDWMC  VARCHAR2(100),
+  XGDW    VARCHAR2(12),
+  DJSJ    VARCHAR2(14),
+  DJR     VARCHAR2(6),
+  DJDWMC  VARCHAR2(100),
+  DJDW    VARCHAR2(12),
+  SFXXY   VARCHAR2(1),
+  DLRLXFS VARCHAR2(50),
+  DLR     VARCHAR2(50),
+  FZZXSJ  VARCHAR2(8),
+  FZZXYY  VARCHAR2(1),
+  FZZT    VARCHAR2(1),
+  LXDH    VARCHAR2(50),
+  CQXZ    VARCHAR2(3),
+  SYR     VARCHAR2(60),
+  CQDW    VARCHAR2(60),
+  RYJGBH  VARCHAR2(20),
+  FWGLBH  VARCHAR2(20),
+  CJLY    VARCHAR2(1),
+  ZBH     INTEGER,
+  FZXXBZ  VARCHAR2(2),
+  GMSFHM  VARCHAR2(18),
+  RKSJ    VARCHAR2(14),
+  RKBZ    CHAR(1)
+)
+tablespace ZHXT_DATA
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 16
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table DZ_CZFW_FZXX
+  is '出租房屋房主信息表';
+-- Add comments to the columns 
+comment on column DZ_CZFW_FZXX.JLBH
+  is '记录编号';
+comment on column DZ_CZFW_FZXX.XGSJ
+  is '修改日期';
+comment on column DZ_CZFW_FZXX.XGRXM
+  is '修改人';
+comment on column DZ_CZFW_FZXX.XGR
+  is '修改人';
+comment on column DZ_CZFW_FZXX.XGDWMC
+  is '修改单位';
+comment on column DZ_CZFW_FZXX.XGDW
+  is '修改单位';
+comment on column DZ_CZFW_FZXX.DJSJ
+  is '登记时间';
+comment on column DZ_CZFW_FZXX.DJR
+  is '登记人';
+comment on column DZ_CZFW_FZXX.DJDWMC
+  is '登记单位名称';
+comment on column DZ_CZFW_FZXX.DJDW
+  is '登记单位';
+comment on column DZ_CZFW_FZXX.SFXXY
+  is '是否信息员';
+comment on column DZ_CZFW_FZXX.DLRLXFS
+  is '代理人联系方式';
+comment on column DZ_CZFW_FZXX.DLR
+  is '代理人';
+comment on column DZ_CZFW_FZXX.FZZXSJ
+  is '房主注销时间';
+comment on column DZ_CZFW_FZXX.FZZXYY
+  is '房主注销原因';
+comment on column DZ_CZFW_FZXX.FZZT
+  is '房主状态';
+comment on column DZ_CZFW_FZXX.LXDH
+  is '房主联系电话';
+comment on column DZ_CZFW_FZXX.CQXZ
+  is '产权性质';
+comment on column DZ_CZFW_FZXX.SYR
+  is '房屋所有人';
+comment on column DZ_CZFW_FZXX.CQDW
+  is '房屋产权单位';
+comment on column DZ_CZFW_FZXX.RYJGBH
+  is '房主编号';
+comment on column DZ_CZFW_FZXX.FWGLBH
+  is '房屋编号';
+comment on column DZ_CZFW_FZXX.CJLY
+  is '采集来源';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table DZ_CZFW_FZXX
+  add primary key (JLBH)
+  using index 
+  tablespace ZHXT_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create index FZXX_DJSJ on DZ_CZFW_FZXX (DJSJ)
+  tablespace ZHXT_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index FZXX_FWGLBH on DZ_CZFW_FZXX (FWGLBH)
+  tablespace ZHXT_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index FZXX_FZZT on DZ_CZFW_FZXX (FZZT)
+  tablespace ZHXT_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+create index FZXX_RYJGBH on DZ_CZFW_FZXX (RYJGBH)
+  tablespace ZHXT_DATA
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Grant/Revoke object privileges 
+grant select on DZ_CZFW_FZXX to JWTJK;
+grant select, insert, update, delete on DZ_CZFW_FZXX to ZHXT;
